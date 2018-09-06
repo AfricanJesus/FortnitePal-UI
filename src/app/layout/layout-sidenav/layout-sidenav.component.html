@@ -1,0 +1,29 @@
+<sidenav [orientation]="orientation" [ngClass]="getClasses()">
+
+  <div id="layout-sidenav" class="layout-sidenav sidenav sidenav-vertical bg-sidenav-theme">
+    <!-- Brand -->
+    <div class="app-brand py-3">
+      <i class="app-brand-logo fas fa-coins" style="color: white"></i>
+      <a routerLink="/" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Fortnite Pal</a>
+      <a href="javascript:void(0)" class="layout-sidenav-toggle sidenav-link text-large ml-auto" (click)="toggleSidenav()">
+        <i class="ion ion-md-menu align-middle"></i>
+      </a>
+    </div>
+    <div class="sidenav-divider my-0"></div>
+    <!-- / Brand -->
+    <!-- Inner -->
+    <div class="sidenav-inner" [ngClass]="{ 'py-1': orientation !== 'horizontal' }">
+      <sidenav-router-link icon="ion ion-ios-contact" route="/home" [active]="isActive('/home')">Home</sidenav-router-link>
+
+      <sidenav-menu icon="ion ion-md-desktop" text="Locker"[active]="isMenuActive('/locker')" [open]="isMenuOpen('/locker')">
+        <sidenav-router-link icon="ion ion-md-desktop" route="/locker/outfit" [active]="isActive('/locker/outfit')">Outfits</sidenav-router-link>
+        <sidenav-router-link icon="ion ion-md-desktop" route="/locker/backbling" [active]="isActive('/locker/backbling')">Back Blings</sidenav-router-link>
+        <sidenav-router-link icon="ion ion-md-desktop" route="/locker/harvestingtool" [active]="isActive('/locker/harvestingtool')">Harvesting Tools</sidenav-router-link>
+        <sidenav-router-link icon="ion ion-md-desktop" route="/locker/glider" [active]="isActive('/locker/glider')">Gliders</sidenav-router-link>
+        <sidenav-router-link icon="ion ion-md-desktop" route="/locker/contrail" [active]="isActive('/locker/contrail')">Contrails</sidenav-router-link>
+        <sidenav-router-link icon="ion ion-md-desktop" route="/locker/loadingscreen" [active]="isActive('/locker/loadingscreen')">Loading Screens</sidenav-router-link>
+      </sidenav-menu>
+      <sidenav-router-link icon="ion ion-md-desktop" route="/page-2" [active]="isActive('/page-2')">Page 2</sidenav-router-link>
+    </div>
+  </div>
+</sidenav>
