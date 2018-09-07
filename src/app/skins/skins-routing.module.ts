@@ -21,4 +21,4 @@ import {LoadingScreenComponent} from "./Loading Screen/loadingscreen.component";
   ])],
   exports: [RouterModule]
 })
-export class LockerRoutingModule { }
+export class SkinsRoutingModule { }

@@ -1,22 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppService } from '../app.service';
+import {EmoticonComponent} from "./emoticon.component";
 
-import { BackblingComponent } from './backbling.component';
 
-describe('OutfitComponent', () => {
-  let component: BackblingComponent;
-  let fixture: ComponentFixture<OutfitComponent>;
+
+
+
+describe('EmoticonComponent', () => {
+  let component: EmoticonComponent;
+  let fixture: ComponentFixture<EmoticonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [ AppService ],
-      declarations: [ BackblingComponent ]
+      declarations: [ EmoticonComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BackblingComponent);
+    fixture = TestBed.createComponent(EmoticonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

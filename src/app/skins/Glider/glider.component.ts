@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AppService } from '../../app.service';
 
 @Component({
-  selector: 'app-locker-glider',
+  selector: 'app-skins-glider',
   templateUrl: './glider.component.html'
 })
 export class GliderComponent {

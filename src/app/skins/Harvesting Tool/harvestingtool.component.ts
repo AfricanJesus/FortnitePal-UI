@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AppService } from '../../app.service';
 
 @Component({
-  selector: 'app-locker-harvestingtool',
+  selector: 'app-skins-harvestingtool',
   templateUrl: './harvestingtool.component.html'
 })
 export class HarvestingToolComponent {

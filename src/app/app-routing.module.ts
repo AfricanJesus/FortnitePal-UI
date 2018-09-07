@@ -1,23 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// *******************************************************************************
-// Layouts
-
 import { Layout2Component } from './layout/layout-2/layout-2.component';
 import {Page2Component} from "./page-2/page-2.component";
 import {HomeComponent} from "./home/home.component";
 
-// *******************************************************************************
-// Pages
-
-
-// *******************************************************************************
-// App
-
-
-// *******************************************************************************
-// Routes
 
 const routes: Routes = [
   // Default
@@ -28,7 +15,9 @@ const routes: Routes = [
   { path: 'page-2', component: Layout2Component, children: [
     { path: '', component: Page2Component },
   ]},
-  { path: 'locker', component: Layout2Component, loadChildren: './locker/locker.module#LockerModule'}
+  { path: 'skins', component: Layout2Component, loadChildren: './skins/skins.module#SkinsModule'},
+  { path: 'emote', component: Layout2Component, loadChildren: './emote/emote.module#EmoteModule'},
+  { path: 'seasons', component: Layout2Component, loadChildren: './seasons/seasons.module#SeasonsModule'}
 
 ];
 

@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { AppService } from '../../app.service';
 
 @Component({
-  selector: 'app-locker-contrail',
-  templateUrl: './contrail.component.html'
+  selector: 'app-seasons-season5',
+  templateUrl: './season5.component.html'
 })
-export class ContrailComponent {
+export class Season5Component {
 
   constructor(private appService: AppService) {
-    this.appService.pageTitle = 'Contrail';
+    this.appService.pageTitle = 'Season 5';
   }
 
 }
