@@ -12,14 +12,10 @@ import {LoadingScreenComponent} from "./Loading Screen/loadingscreen.component";
 import {SkinsRoutingModule} from "./skins-routing.module";
 
 
-// *******************************************************************************
-//
-
 @NgModule({
   imports: [
     CommonModule,
     NgbModule,
-
     SkinsRoutingModule
   ],
   declarations: [
@@ -30,5 +26,6 @@ import {SkinsRoutingModule} from "./skins-routing.module";
     GliderComponent,
     LoadingScreenComponent
   ]
+
 })
 export class SkinsModule { }

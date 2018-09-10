@@ -21,6 +21,8 @@ import { LayoutModule } from './layout/layout.module';
 
 import {Page2Component} from "./page-2/page-2.component";
 import { HomeComponent} from "./home/home.component";
+import {ItemSimpleService} from "./shared/services/itemsimple.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 // *******************************************************************************
@@ -43,12 +45,14 @@ import { HomeComponent} from "./home/home.component";
     BrowserAnimationsModule,
     // App
     AppRoutingModule,
-    LayoutModule
+    LayoutModule,
+    HttpClientModule
   ],
 
   providers: [
     Title,
-    AppService
+    AppService,
+    ItemSimpleService
   ],
 
   bootstrap: [
