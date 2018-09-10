@@ -11,6 +11,8 @@ import {GliderComponent} from "./Glider/glider.component";
 import {LoadingScreenComponent} from "./Loading Screen/loadingscreen.component";
 import {SkinsRoutingModule} from "./skins-routing.module";
 
+import {ItemsimpleComponent} from "../shared/itemsimple.component";
+
 
 @NgModule({
   imports: [
@@ -24,8 +26,13 @@ import {SkinsRoutingModule} from "./skins-routing.module";
     ContrailComponent,
     HarvestingToolComponent,
     GliderComponent,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    ItemsimpleComponent
+  ],
+  exports: [
+    ItemsimpleComponent
   ]
 
 })
-export class SkinsModule { }
+export class SkinsModule {
+}

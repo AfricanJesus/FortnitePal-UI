@@ -11,12 +11,13 @@ import {EmoticonComponent} from "./emoticon/emoticon.component";
 import {SprayComponent} from "./spray/spray.component";
 import {ToyComponent} from "./toy/toy.component";
 
+import {SkinsModule} from "../skins/skins.module";
 
 @NgModule({
   imports: [
     CommonModule,
     NgbModule,
-
+    SkinsModule,
     EmoteRoutingModule
   ],
   declarations: [

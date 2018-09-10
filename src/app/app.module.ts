@@ -20,7 +20,7 @@ import { LayoutModule } from './layout/layout.module';
 // Pages
 
 import {Page2Component} from "./page-2/page-2.component";
-import { HomeComponent} from "./home/home.component";
+import {HomeComponent} from "./home/home.component";
 import {ItemSimpleService} from "./shared/services/itemsimple.service";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -36,7 +36,6 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     Page2Component
   ],
-
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
@@ -48,13 +47,11 @@ import {HttpClientModule} from "@angular/common/http";
     LayoutModule,
     HttpClientModule
   ],
-
   providers: [
     Title,
     AppService,
     ItemSimpleService
   ],
-
   bootstrap: [
     AppComponent
   ]
