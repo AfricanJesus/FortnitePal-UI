@@ -7,7 +7,7 @@ import { AppService } from '../../app.service';
 })
 export class GliderComponent {
 
-  url: string = 'http://localhost:8080/api/items/search/findByItemType?item=GLIDER&sort=rarityType&projection=itemModelSimple&size=500';
+  url: string = 'http://localhost:8080/api/items/search/findByItemType?item=GLIDER&sort=rarityType&projection=itemModelSimple&size=500&sort=name';
 
   constructor(private appService: AppService) {
     this.appService.pageTitle = 'Glider';

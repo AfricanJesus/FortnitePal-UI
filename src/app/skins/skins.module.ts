@@ -10,15 +10,18 @@ import {HarvestingToolComponent} from "./Harvesting Tool/harvestingtool.componen
 import {GliderComponent} from "./Glider/glider.component";
 import {LoadingScreenComponent} from "./Loading Screen/loadingscreen.component";
 import {SkinsRoutingModule} from "./skins-routing.module";
+import {SharedModule} from "../shared/shared.module";
 
-import {ItemsimpleComponent} from "../shared/itemsimple.component";
+
 
 
 @NgModule({
   imports: [
     CommonModule,
     NgbModule,
-    SkinsRoutingModule
+    SkinsRoutingModule,
+    SharedModule
+
   ],
   declarations: [
     OutfitComponent,
@@ -26,11 +29,7 @@ import {ItemsimpleComponent} from "../shared/itemsimple.component";
     ContrailComponent,
     HarvestingToolComponent,
     GliderComponent,
-    LoadingScreenComponent,
-    ItemsimpleComponent
-  ],
-  exports: [
-    ItemsimpleComponent
+    LoadingScreenComponent
   ]
 
 })

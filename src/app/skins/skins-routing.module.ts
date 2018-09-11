@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { OutfitComponent} from "./outfit/outfit.component";
 import { BackblingComponent} from "./Back Bling/backbling.component";

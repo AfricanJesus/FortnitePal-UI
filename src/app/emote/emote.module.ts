@@ -5,20 +5,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // *******************************************************************************
 //
 
-import { EmoteRoutingModule} from "./emote-routing.module";
+import {EmoteRoutingModule} from "./emote-routing.module";
 import {DanceComponent} from "./dance/dance.component";
 import {EmoticonComponent} from "./emoticon/emoticon.component";
 import {SprayComponent} from "./spray/spray.component";
 import {ToyComponent} from "./toy/toy.component";
 
-import {SkinsModule} from "../skins/skins.module";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
     NgbModule,
-    SkinsModule,
-    EmoteRoutingModule
+    EmoteRoutingModule,
+    SharedModule
   ],
   declarations: [
     DanceComponent,

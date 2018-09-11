@@ -7,6 +7,8 @@ import { AppService } from '../../app.service';
 })
 export class Season2Component {
 
+  url:string = 'http://localhost:8080/api/items/search/findByObtained_Season?season=2&sort=obtained_tier&size=500';
+
   constructor(private appService: AppService) {
     this.appService.pageTitle = 'Season 2';
   }
