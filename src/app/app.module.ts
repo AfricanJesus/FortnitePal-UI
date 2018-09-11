@@ -19,10 +19,12 @@ import { LayoutModule } from './layout/layout.module';
 // *******************************************************************************
 // Pages
 
-import {Page2Component} from "./page-2/page-2.component";
 import {HomeComponent} from "./home/home.component";
 import {ItemSimpleService} from "./shared/services/itemsimple.service";
 import {HttpClientModule} from "@angular/common/http";
+import {ItemdetailService} from "./shared/services/itemdetail.service";
+import {UnreleasedComponent} from "./unreleased/unreleased.component";
+import {SharedModule} from "./shared/shared.module";
 
 
 // *******************************************************************************
@@ -34,7 +36,7 @@ import {HttpClientModule} from "@angular/common/http";
 
     // Pages
     HomeComponent,
-    Page2Component
+    UnreleasedComponent
   ],
   imports: [
     BrowserModule,
@@ -45,12 +47,14 @@ import {HttpClientModule} from "@angular/common/http";
     // App
     AppRoutingModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [
     Title,
     AppService,
-    ItemSimpleService
+    ItemSimpleService,
+    ItemdetailService
   ],
   bootstrap: [
     AppComponent
