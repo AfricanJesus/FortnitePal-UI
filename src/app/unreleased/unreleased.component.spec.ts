@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppService } from '../app.service';
 
-import { Page2Component } from './page-2.component';
+import { Page2Component } from './unreleased.component';
 
 describe('Page2Component', () => {
   let component: Page2Component;
