@@ -4,7 +4,7 @@ import {ItemsimpleComponent} from "./components/itemsimple.component";
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {ItemsingledetailComponent} from "./components/itemsingledetail.component";
+import {ItemsingleComponent} from "./components/itemsingle.component";
 import {RouterModule} from "@angular/router";
 
 @NgModule({
@@ -15,10 +15,10 @@ import {RouterModule} from "@angular/router";
   ],
   declarations: [
     ItemsimpleComponent,
-    ItemsingledetailComponent
+    ItemsingleComponent
   ], exports: [
     ItemsimpleComponent,
-    ItemsingledetailComponent
+    ItemsingleComponent
   ]
 })
 export class SharedModule { }

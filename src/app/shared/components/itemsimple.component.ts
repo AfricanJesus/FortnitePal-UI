@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import RootObject = ItemSimpleModule.RootObject;
 
-import Item = ItemSimpleModule.Item;
-import {ItemSimpleService} from "../services/itemsimple.service";
+import RootObject = ItemSimpleListModule.RootObject;
+import Item = ItemSimpleListModule.Item;
+import {ItemSimpleListService} from "../services/itemsimplelist.service";
 
 @Component({
   selector: 'app-itemsimple',
@@ -13,7 +13,7 @@ export class ItemsimpleComponent implements OnInit {
   items: Item[];
   @Input() url: string;
 
-  constructor(private itemSimpleService: ItemSimpleService) {
+  constructor(private itemSimpleService: ItemSimpleListService) {
   }
 
   ngOnInit() {

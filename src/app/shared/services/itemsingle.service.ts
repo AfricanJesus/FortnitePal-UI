@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import RootObject = ItemDetailModule.RootObject;
 import {Observable} from "rxjs/Rx";
+
+import Item = ItemSingleModule.Item;
+
+
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -10,11 +13,11 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class ItemdetailService {
+export class ItemSingleService {
 
   constructor(private  http: HttpClient) { }
 
-  getItems(url: string): Observable<RootObject>{
-    return this.http.get<RootObject>(url);
+  getItems(url: string): Observable<Item>{
+    return this.http.get<Item>(url);
   }
 }

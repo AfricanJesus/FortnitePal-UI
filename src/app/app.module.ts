@@ -20,12 +20,17 @@ import { LayoutModule } from './layout/layout.module';
 // Pages
 
 import {HomeComponent} from "./home/home.component";
-import {ItemSimpleService} from "./shared/services/itemsimple.service";
+
+import {ItemSimpleListService} from "./shared/services/itemsimplelist.service";
 import {HttpClientModule} from "@angular/common/http";
-import {ItemdetailService} from "./shared/services/itemdetail.service";
+
+import {ItemListService} from "./shared/services/itemlist.service";
 import {UnreleasedComponent} from "./unreleased/unreleased.component";
 import {SharedModule} from "./shared/shared.module";
-import { DetailComponent } from './detail/detail.component';
+import {DetailComponent } from './detail/detail.component';
+
+import {ItemSingleService} from "./shared/services/itemsingle.service";
+
 
 
 // *******************************************************************************
@@ -55,8 +60,9 @@ import { DetailComponent } from './detail/detail.component';
   providers: [
     Title,
     AppService,
-    ItemSimpleService,
-    ItemdetailService
+    ItemSimpleListService,
+    ItemListService,
+    ItemSingleService
   ],
   bootstrap: [
     AppComponent

@@ -1,4 +1,4 @@
-declare module ItemSimpleModule {
+declare module ItemSimpleListModule {
 
   export interface Self {
     href: string;

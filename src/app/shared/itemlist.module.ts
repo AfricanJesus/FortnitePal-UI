@@ -1,4 +1,4 @@
-declare module ItemDetailModule {
+declare module ItemListModule {
 
   export interface Obtained {
     season: number;

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AppService } from '../../app.service';
-import Item = ItemSimpleModule.Item;
 
 
 @Component({

@@ -1,8 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import RootObject = ItemSimpleModule.RootObject;
 
-import Item = ItemSimpleModule.Item;
-import {ItemdetailService} from "../services/itemdetail.service";
+
+import RootObject = ItemSimpleListModule.RootObject;
+import Item = ItemSimpleListModule.Item;
+import {ItemListService} from "../services/itemlist.service";
 
 
 @Component({
@@ -14,14 +15,14 @@ export class ItemseasonComponent implements OnInit {
   public items: Item[];
   @Input() url: string;
 
-  constructor(private itemDetailService: ItemdetailService) { }
+  constructor(private itemListService: ItemListService) { }
 
   ngOnInit() {
     this.getItems();
   }
 
   getItems(){
-    this.itemDetailService.getItems(this.url).subscribe(
+    this.itemListService.getItems(this.url).subscribe(
       (data: RootObject) => { this.items = data._embedded.items},
       err => console.error(err),
       () => console.log('Data Loaded')
