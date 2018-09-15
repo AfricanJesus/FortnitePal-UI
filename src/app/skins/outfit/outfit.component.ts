@@ -8,7 +8,6 @@ import Item = ItemSimpleModule.Item;
   templateUrl: './outfit.component.html'
 })
 export class OutfitComponent{
-  outfits: Item[];
   url: string = 'http://localhost:8080/api/items/search/findByItemType?item=OUTFIT&sort=rarityType&projection=itemModelSimple&size=500&sort=name';
 
   constructor(private appService: AppService) {

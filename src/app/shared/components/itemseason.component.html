@@ -2,7 +2,7 @@
   <div class="card-header text-large">All Items from the Season</div>
   <div class="row no-gutters row-bordered" *ngFor="let item of items">
     <div class="media col-md-6 col-lg-4 p-4">
-      <a href="#" class="d-block ui-w-140 ui-bordered mr-3">
+      <a [routerLink]="['/details', getItemID(item)]" class="d-block ui-w-140 ui-bordered mr-3">
         <div [ngSwitch]="item.rarityType">
           <div *ngSwitchCase="'LEGENDARY'" style="background-image: url('http://localhost:8080/images/background/legendary.png'); background-size: cover;">
             <img class="card-img-top p-1" src="{{item.image}}" alt="{{item.name}}" >
@@ -22,7 +22,7 @@
         </div>
       </a>
       <div class="media-body text-large" >
-        <a href="#" class="text-dark">{{item.name}}</a>
+        <a class="text-dark">{{item.name}}</a>
         <br>
         <strong><span class="text-muted">Tier:</span>&nbsp; {{item.obtained.tier}}</strong>
       </div>

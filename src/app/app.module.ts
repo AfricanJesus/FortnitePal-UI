@@ -25,6 +25,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ItemdetailService} from "./shared/services/itemdetail.service";
 import {UnreleasedComponent} from "./unreleased/unreleased.component";
 import {SharedModule} from "./shared/shared.module";
+import { DetailComponent } from './detail/detail.component';
 
 
 // *******************************************************************************
@@ -36,7 +37,8 @@ import {SharedModule} from "./shared/shared.module";
 
     // Pages
     HomeComponent,
-    UnreleasedComponent
+    UnreleasedComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

@@ -24,7 +24,11 @@ export class ItemseasonComponent implements OnInit {
     this.itemDetailService.getItems(this.url).subscribe(
       (data: RootObject) => { this.items = data._embedded.items},
       err => console.error(err),
-      () => console.log('outfits loaded')
+      () => console.log('Data Loaded')
     );
+  }
+  getItemID(item: Item): number{
+    var split = item._links.self.href.split("/", 6);
+    return Number(split[split.length - 1]);
   }
 }

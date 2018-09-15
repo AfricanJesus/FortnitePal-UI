@@ -9,6 +9,7 @@ import {Season3Component} from "./season3/season3.component";
 import {Season4Component} from "./season4/season4.component";
 import {Season5Component} from "./season5/season5.component";
 import {ItemseasonComponent} from "../shared/components/itemseason.component";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -21,6 +22,7 @@ import {ItemseasonComponent} from "../shared/components/itemseason.component";
   imports: [
     CommonModule,
     NgbModule,
+    RouterModule,
 
     SeasonsRoutingModule
   ],

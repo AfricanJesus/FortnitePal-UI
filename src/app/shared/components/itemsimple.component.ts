@@ -10,10 +10,11 @@ import {ItemSimpleService} from "../services/itemsimple.service";
 })
 export class ItemsimpleComponent implements OnInit {
 
-  public items: Item[];
+  items: Item[];
   @Input() url: string;
 
-  constructor(private itemSimpleService: ItemSimpleService) { }
+  constructor(private itemSimpleService: ItemSimpleService) {
+  }
 
   ngOnInit() {
     this.getItems();
@@ -23,7 +24,11 @@ export class ItemsimpleComponent implements OnInit {
     this.itemSimpleService.getItems(this.url).subscribe(
       (data: RootObject) => { this.items = data._embedded.items},
       err => console.error(err),
-      () => console.log('outfits loaded')
+      () => console.log('Data Loaded')
     );
+  }
+  getItemID(item: Item): number{
+    var split = item._links.self.href.split("/", 6);
+    return Number(split[split.length - 1]);
   }
 }

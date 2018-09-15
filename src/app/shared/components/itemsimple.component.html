@@ -1,22 +1,24 @@
 
   <div class="row" >
     <div class="col-sm-2" *ngFor="let item of items">
-      <div [ngSwitch]="item.rarityType">
-        <div *ngSwitchCase="'LEGENDARY'" style="background-image: url('http://localhost:8080/images/background/legendary.png'); background-size: cover;">
-          <img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}" >
-        </div>
-        <div *ngSwitchCase="'EPIC'" style="background-image: url('http://localhost:8080/images/background/epic.png'); background-size: cover;">
-          <img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}" >
-        </div>
-        <div *ngSwitchCase="'UNCOMMON'"style="background-image: url('http://localhost:8080/images/background/uncommon.png'); background-size: cover;">
-          <img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}">
-        </div>
-        <div *ngSwitchCase="'RARE'" style="background-image: url('http://localhost:8080/images/background/rare.png'); background-size: cover;">
-          <img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}">
-        </div>
-        <div *ngSwitchCase="'COMMON'" style="background-image: url('http://localhost:8080/images/background/common.png'); background-size: cover;">
-          <img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}">
-        </div>
+      <div [ngSwitch]="item.rarityType" >
+        <a [routerLink]="['/details', getItemID(item)]" >
+          <div *ngSwitchCase="'LEGENDARY'" style="background-image: url('http://localhost:8080/images/background/legendary.png'); background-size: cover;" >
+            <img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}" >
+          </div>
+          <div *ngSwitchCase="'EPIC'" style="background-image: url('http://localhost:8080/images/background/epic.png'); background-size: cover;">
+            <img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}" >
+          </div>
+          <div *ngSwitchCase="'UNCOMMON'"style="background-image: url('http://localhost:8080/images/background/uncommon.png'); background-size: cover;">
+            <img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}">
+          </div>
+          <div *ngSwitchCase="'RARE'" style="background-image: url('http://localhost:8080/images/background/rare.png'); background-size: cover;">
+            <img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}">
+          </div>
+          <div *ngSwitchCase="'COMMON'" style="background-image: url('http://localhost:8080/images/background/common.png'); background-size: cover;">
+            <img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}">
+          </div>
+        </a>
       </div>
       <div >
         <h3 class="card-title m-1 text-center">{{item.name}}</h3>
