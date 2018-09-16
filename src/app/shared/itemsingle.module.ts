@@ -4,7 +4,7 @@ declare module ItemSingleModule {
     season: number;
     tier: number;
     promo: string;
-    includedIn: string;
+    includedInName: string;
     vbuckPrice: number;
     price: number;
     challenge: string;
