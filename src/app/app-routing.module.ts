@@ -9,7 +9,7 @@ import {DetailComponent} from "./detail/detail.component";
 
 const routes: Routes = [
   // Default
-  { path: '', component: Layout2Component, children: [
+  { path: '',runGuardsAndResolvers: 'always', component: Layout2Component, children: [
     { path: 'home', component: HomeComponent },
     { path: 'details/:id', component: DetailComponent }
   ]},
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'skins', component: Layout2Component, loadChildren: './skins/skins.module#SkinsModule'},
   { path: 'emote', component: Layout2Component, loadChildren: './emote/emote.module#EmoteModule'},
   { path: 'seasons', component: Layout2Component, loadChildren: './seasons/seasons.module#SeasonsModule'},
-  { path: '**', redirectTo: 'home', pathMatch: 'full'}
+  { path: '**', redirectTo: 'home', pathMatch: 'full'},
 
 ];
 
@@ -27,7 +27,7 @@ const routes: Routes = [
 //
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: "reload"})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
