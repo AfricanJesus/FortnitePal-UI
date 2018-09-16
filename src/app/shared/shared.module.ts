@@ -7,6 +7,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {ItemsingleComponent} from "./components/itemsingle.component";
 import {RouterModule} from "@angular/router";
 
+
 @NgModule({
   imports: [
     CommonModule,
