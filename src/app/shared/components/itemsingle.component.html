@@ -1,0 +1,159 @@
+<div>
+  <div class="card mb-4">
+    <div class="row no-gutters row-bordered">
+      <div class="col-lg-4">
+        <div class="card-body">
+          <!--<div [ngSwitch]="item?.rarityType">-->
+            <!--<div *ngSwitchCase="'LEGENDARY'"-->
+                 <!--style="background-image: url('http://localhost:8080/images/background/legendary.png'); background-size: cover;">-->
+              <!--<img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}">-->
+            <!--</div>-->
+            <!--<div *ngSwitchCase="'EPIC'"-->
+                 <!--style="background-image: url('http://localhost:8080/images/background/epic.png'); background-size: cover;">-->
+              <!--<img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}">-->
+            <!--</div>-->
+            <!--<div *ngSwitchCase="'UNCOMMON'"-->
+                 <!--style="background-image: url('http://localhost:8080/images/background/uncommon.png'); background-size: cover;">-->
+              <!--<img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}">-->
+            <!--</div>-->
+            <!--<div *ngSwitchCase="'RARE'"-->
+                 <!--style="background-image: url('http://localhost:8080/images/background/rare.png'); background-size: cover;">-->
+              <!--<img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}">-->
+            <!--</div>-->
+            <!--<div *ngSwitchCase="'COMMON'"-->
+                 <!--style="background-image: url('http://localhost:8080/images/background/common.png'); background-size: cover;">-->
+              <!--<img class="card-img p-1" src="{{item.image}}" alt="{{item.name}}">-->
+            <!--</div>-->
+          <!--</div>-->
+          <ngb-carousel>
+            <ng-template ngbSlide>
+              <img class="d-block w-100" src="{{item?.images[0]}}" alt="Third slide" style="background-image: url('http://localhost:8080/images/background/epic.png'); background-size: cover;">
+            </ng-template>
+            <div *ngIf="item?.images.length >= 2">
+              <ng-template ngbSlide>
+                <img class="d-block w-100" src="{{item?.images[1]}}" alt="Third slide" style="background-image: url('http://localhost:8080/images/background/epic.png'); background-size: cover;">
+              </ng-template>
+            </div>
+            <div *ngIf="item?.images.length >= 3">
+              <ng-template ngbSlide>
+                <img class="d-block w-100" src="{{item?.images[2]}}" alt="Third slide" style="background-image: url('http://localhost:8080/images/background/epic.png'); background-size: cover;">
+              </ng-template>
+            </div>
+          </ngb-carousel>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card-body text-big">
+          <h4 class="mb-2 text-dark">{{item?.name}}</h4>
+          <div>
+            <span class="text-muted">Description:</span>&nbsp; {{item?.desc}}
+          </div>
+          <div>
+            <div [ngSwitch]="item?.rarityType">
+              <span class="text-muted">Rarity:</span>&nbsp;
+              <span *ngSwitchCase="'LEGENDARY'" style="color: #FAA763">{{item?.rarityType}}</span>
+              <span *ngSwitchCase="'UNCOMMON'" style="color: #7BCC41">{{item?.rarityType}}</span>
+              <span *ngSwitchCase="'RARE'" style="color: #3EBAED">{{item?.rarityType}}</span>
+              <span *ngSwitchCase="'EPIC'" style="color: #D65AFA">{{item?.rarityType}}</span>
+              <span *ngSwitchCase="'COMMON'" style="color: #A0A7AD">{{item?.rarityType}}</span>
+            </div>
+            <div>
+              <span class="text-muted">Obtained By:</span>&nbsp;
+              <ul>
+                <li *ngIf="item?.obtained.season != 0">Season: {{item?.obtained.season}} Tier: {{item?.obtained.tier}}
+                </li>
+                <li *ngIf="item?.obtained.promo != 'null'">Promo: {{item?.obtained.promo}}</li>
+                <li *ngIf="item?.obtained.includedInName != 'null'">Included In Outfit:
+                  {{item?.obtained.includedInName}}
+                </li>
+                <li *ngIf="item?.obtained.vbuckPrice != 0">
+                  <img src="http://localhost:8080/images/icons/vbucks.png" width="3%"> {{item?.obtained.vbuckPrice}}
+                </li>
+                <li *ngIf="item?.obtained.price != 0">Price: {{item?.obtained.price | currency}}</li>
+                <li *ngIf="item?.obtained.challenge != 'null'">Complete Challenge(s) From:
+                  {{item?.obtained.challenge}}
+                </li>
+              </ul>
+            </div>
+            <div *ngIf="item?.set != 'null'">
+              <span class="text-muted">Set:</span>&nbsp; {{item?.set}}
+            </div>
+            <div *ngIf="item?.styleSet != 'null'">
+              <span class="text-muted">Style Set:</span>&nbsp; {{item?.styleSet}}
+            </div>
+            <div>
+              <span class="text-muted">Release Status:</span>&nbsp;
+              <span *ngIf="item?.status == 'RELEASED'"
+                    style="color: limegreen; font-weight: bold">{{item?.status}}</span>
+              <span *ngIf="item?.status == 'UNRELEASED'" style="color: red; font-weight: bold">{{item?.status}}</span>
+            </div>
+
+            <!--Display backbling-->
+            <div *ngIf="item?.itemType == 'OUTFIT'">
+              <span class="text-muted">Backbling:</span>&nbsp;
+              <app-itemsimple class="text-tiny"
+                [url]="'http://localhost:8080/api/items/search/findByObtained_IncludedInName?sort=desc&sort=rarityType&projection=itemModelSimple&includedInName=' + item?.name"></app-itemsimple>
+            </div>
+            <!--Display outfit-->
+            <div *ngIf="item?.itemType == 'BACKBLING'">
+              <span class="text-muted">Outfit:</span>&nbsp;
+              <app-itemsimple class="text-tiny"
+                              [url]="'http://localhost:8080/api/items/search/findByNameAndItemType?sort=desc&projection=itemModelSimple&item=OUTFIT&name=' + item?.obtained.includedInName"></app-itemsimple>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Display items in same set-->
+
+  <div *ngIf="item?.set && item.set != 'null'">
+    <div class="card mb-4">
+      <div class="card-header" style="text-align: center">
+        <h4>All Items in {{item.set}}</h4>
+      </div>
+      <div class="card-body">
+        <app-itemsimple
+          [url]="'http://localhost:8080/api/items/search/findBySet?sort=desc&sort=rarityType&projection=itemModelSimple&set=' + item.set"></app-itemsimple>
+      </div>
+    </div>
+  </div>
+
+  <!--Display items in teh same promo-->
+
+  <div *ngIf="item?.obtained && item.obtained.promo != 'null'">
+    <div class="card mb-4">
+      <div class="card-header" style="text-align: center">
+        <h4>All Items in {{item.obtained.promo}} Promo </h4>
+      </div>
+      <div class="card-body">
+        <app-itemsimple
+          [url]="'http://localhost:8080/api/items/search/findByObtained_Promo?sort=desc&size=500&promo=' + item.obtained.promo"></app-itemsimple>
+      </div>
+    </div>
+  </div>
+  <!--Display items in the same challenge set-->
+
+  <div *ngIf="item?.obtained && item.obtained.challenge != 'null'">
+    <div class="card mb-4">
+      <div class="card-header" style="text-align: center">
+        <h4>All Items in {{item.obtained.challenge}}</h4>
+      </div>
+      <div class="card-body">
+        <app-itemsimple
+          [url]="'http://localhost:8080/api/items/search/findByObtained_Challenge?sort=desc&size=500&challenge=' + item.obtained.challenge"></app-itemsimple>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div *ngIf="item?.obtained && item.obtained.season != '0'">-->
+<!--<div class="card ">-->
+<!--<div class="card-header" style="text-align: center">-->
+<!--<h4>All Items in Season {{item.obtained.season}}</h4>-->
+<!--</div>-->
+<!--<div class="card-body">-->
+<!--<app-itemsimple [url]="'http://localhost:8080/api/items/search/findByObtained_Season?sort=obtained_tier&size=500&season=' + item.obtained.season"></app-itemsimple>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
