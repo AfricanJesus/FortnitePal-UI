@@ -1,11 +1,14 @@
 
 
-import {ItemsimpleComponent} from "./components/itemsimple.component";
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {ItemsingleComponent} from "./components/itemsingle.component";
+
 import {RouterModule} from "@angular/router";
+import {ItemsingleComponent} from "./components/itemsingle/itemsingle.component";
+import {ItemsimpleComponent} from "./components/itemsimple/itemsimple.component";
+import {ChallengesetComponent} from "./components/challengeset/challengeset.component";
+import {StylesetComponent} from "./components/styleset/styleset.component";
 
 
 @NgModule({
@@ -16,10 +19,14 @@ import {RouterModule} from "@angular/router";
   ],
   declarations: [
     ItemsimpleComponent,
-    ItemsingleComponent
+    ItemsingleComponent,
+    ChallengesetComponent,
+    StylesetComponent
   ], exports: [
     ItemsimpleComponent,
-    ItemsingleComponent
+    ItemsingleComponent,
+    ChallengesetComponent,
+    StylesetComponent
   ]
 })
 export class SharedModule { }

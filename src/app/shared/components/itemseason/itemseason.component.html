@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header text-large">All Items from the Season</div>
+  <div class="row no-gutters row-bordered" *ngFor="let item of items">
+    <div class="media col-md-6 col-lg-4 p-4">
+      <a [routerLink]="['/details', getItemID(item)]" class="d-block ui-w-140 ui-bordered mr-3">
+        <div [ngStyle]="{'background-image': 'url(' + getBackground(item?.rarityType) + ')','background-size': 'cover'}">
+          <img class="card-img p-1" src="{{item.images[0]}}" alt="{{item.name}}">
+        </div>
+      </a>
+      <div class="media-body text-large" >
+        <a class="text-dark">{{item.name}}</a>
+        <br>
+        <strong><span class="text-muted">Tier:</span>&nbsp; {{item.obtained.tier}}</strong>
+      </div>
+    </div>
+
+  </div>
+</div>

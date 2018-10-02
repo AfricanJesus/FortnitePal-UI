@@ -3,7 +3,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
 import RootObject = ItemSimpleListModule.RootObject;
 import Item = ItemSimpleListModule.Item;
-import {ItemListService} from "../services/itemlist.service";
+import {ItemListService} from "../../services/itemlist.service";
 
 
 @Component({
@@ -25,11 +25,26 @@ export class ItemseasonComponent implements OnInit {
     this.itemListService.getItems(this.url).subscribe(
       (data: RootObject) => { this.items = data._embedded.items},
       err => console.error(err),
-      () => console.log('Data Loaded')
+      () => console.log('Season Loaded')
     );
   }
   getItemID(item: Item): number{
     var split = item._links.self.href.split("/", 6);
     return Number(split[split.length - 1]);
+  }
+
+  getBackground(type){
+    switch (type){
+      case 'LEGENDARY':
+        return 'http://localhost:8080/images/background/legendary.png';
+      case 'EPIC':
+        return 'http://localhost:8080/images/background/epic.png';
+      case 'RARE':
+        return 'http://localhost:8080/images/background/rare.png';
+      case 'COMMON':
+        return 'http://localhost:8080/images/background/common.png';
+      case 'UNCOMMON':
+        return 'http://localhost:8080/images/background/uncommon.png';
+    }
   }
 }

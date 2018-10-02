@@ -20,16 +20,19 @@ import { LayoutModule } from './layout/layout.module';
 // Pages
 
 import {HomeComponent} from "./home/home.component";
-
-import {ItemSimpleListService} from "./shared/services/itemsimplelist.service";
-import {HttpClientModule} from "@angular/common/http";
-
-import {ItemListService} from "./shared/services/itemlist.service";
-import {UnreleasedComponent} from "./unreleased/unreleased.component";
-import {SharedModule} from "./shared/shared.module";
 import {DetailComponent } from './detail/detail.component';
+import {UnreleasedComponent} from "./unreleased/unreleased.component";
+
+import {HttpClientModule} from "@angular/common/http";
+import {SharedModule} from "./shared/shared.module";
+
 
 import {ItemSingleService} from "./shared/services/itemsingle.service";
+import {ItemListService} from "./shared/services/itemlist.service";
+import {ItemSimpleListService} from "./shared/services/itemsimplelist.service";
+import {StylesetService} from "./shared/services/styleset.service";
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+
 
 
 
@@ -44,7 +47,8 @@ import {ItemSingleService} from "./shared/services/itemsingle.service";
     // Pages
     HomeComponent,
     UnreleasedComponent,
-    DetailComponent
+    DetailComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,8 @@ import {ItemSingleService} from "./shared/services/itemsingle.service";
     AppService,
     ItemSimpleListService,
     ItemListService,
-    ItemSingleService
+    ItemSingleService,
+    StylesetService
   ],
   bootstrap: [
     AppComponent

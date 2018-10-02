@@ -1,9 +1,12 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import Item = ItemSingleModule.Item;
-import {ItemSingleService} from "../services/itemsingle.service";
+
+import {ItemSingleService} from "../../services/itemsingle.service";
 
 import {NavigationEnd, Router} from "@angular/router";
+
+
 
 
 @Component({
@@ -14,7 +17,6 @@ export class ItemsingleComponent implements OnInit{
 
   item: Item;
   @Input() url: string;
-  // itemSetUrl: string = 'http://localhost:8080/api/items/search/findBySet?sort=desc&sort=rarityType&projection=itemModelSimple&set=';
 
   constructor(private itemSingleService: ItemSingleService, private router: Router) {
     // override the route reuse strategy
@@ -41,6 +43,34 @@ export class ItemsingleComponent implements OnInit{
       err => console.error(err),
       () => console.log('Data Loaded')
     );
+  }
+  getBackground(type){
+    switch (type){
+      case 'LEGENDARY':
+        return 'http://localhost:8080/images/background/legendary.png';
+      case 'EPIC':
+        return 'http://localhost:8080/images/background/epic.png';
+      case 'RARE':
+        return 'http://localhost:8080/images/background/rare.png';
+      case 'COMMON':
+        return 'http://localhost:8080/images/background/common.png';
+      case 'UNCOMMON':
+        return 'http://localhost:8080/images/background/uncommon.png';
+    }
+  }
+  getRarityColor(type){
+    switch (type){
+      case 'LEGENDARY':
+        return '#FAA763';
+      case 'EPIC':
+        return '#D65AFA';
+      case 'RARE':
+        return '#3EBAED';
+      case 'COMMON':
+        return '#A0A7AD';
+      case 'UNCOMMON':
+        return '#7BCC41';
+    }
   }
 
 

@@ -11,6 +11,7 @@ import {GliderComponent} from "./Glider/glider.component";
 import {LoadingScreenComponent} from "./Loading Screen/loadingscreen.component";
 import {SkinsRoutingModule} from "./skins-routing.module";
 import {SharedModule} from "../shared/shared.module";
+import {PetComponent} from "./Pet/pet.component";
 
 
 
@@ -29,7 +30,8 @@ import {SharedModule} from "../shared/shared.module";
     ContrailComponent,
     HarvestingToolComponent,
     GliderComponent,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    PetComponent
   ]
 
 })

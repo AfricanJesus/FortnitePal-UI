@@ -7,6 +7,7 @@ import { ContrailComponent} from "./Contrail/contrail.component";
 import {HarvestingToolComponent} from "./Harvesting Tool/harvestingtool.component";
 import {GliderComponent} from "./Glider/glider.component";
 import {LoadingScreenComponent} from "./Loading Screen/loadingscreen.component";
+import {PetComponent} from "./Pet/pet.component";
 
 
 
@@ -17,7 +18,8 @@ import {LoadingScreenComponent} from "./Loading Screen/loadingscreen.component";
     { path: 'contrail', component: ContrailComponent},
     { path: 'harvestingtool', component: HarvestingToolComponent},
     { path: 'glider', component: GliderComponent},
-    { path: 'loadingscreen', component: LoadingScreenComponent}
+    { path: 'loadingscreen', component: LoadingScreenComponent},
+    { path: 'pet', component: PetComponent}
   ])],
   exports: [RouterModule]
 })

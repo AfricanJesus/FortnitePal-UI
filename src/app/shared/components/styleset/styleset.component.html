@@ -1,0 +1,17 @@
+<div *ngIf="styleSet?.styleSetName">
+  <div class="card mb-4">
+    <div class="card-header" style="text-align: center">
+      <h4>Available {{styleSet.styleSetName}} </h4>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-2" *ngFor="let stage of styleSet.stages">
+          <img class="card-img p-1" src="{{stage.styleItemImage}}" [ngStyle]="{'background-image': 'url(http://localhost:8080/images/background/basic.png)', 'background-size':'cover'}">
+          <div style="text-align: center">
+            <span class="card-title m-1 text-large">{{stage.styleName}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

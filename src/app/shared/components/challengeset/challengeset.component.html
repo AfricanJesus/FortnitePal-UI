@@ -1,0 +1,40 @@
+<div class="col-8 mb-4" *ngIf="challengeSet?.challengeSetName">
+  <div class="card">
+    <div class="card-header text-large" style="text-align: center">{{challengeSet.challengeSetName}}</div>
+    <table class="table card-table">
+      <thead class="thead-light">
+      <tr>
+        <th style="width: 50%">Objective:</th>
+        <th>Reward:</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td>
+          <div><span class="text-muted">Main Objective:</span>&nbsp;{{challengeSet.challengeSetObjective}}</div>
+          <span class="text-muted">Main Objective Reward:</span>&nbsp;{{challengeSet.challengeSetReward}}
+        </td>
+        <td><img [ngStyle]="{'background-image': 'url(' + getBackground(rarity) + ')','background-size': 'cover', 'width':'30%'}"
+          class="card-img p-1" src="{{challengeSet.challengeSetRewardImage}}">
+        </td>
+      </tr>
+
+      <tr *ngFor="let challenge of challengeSet.challenges">
+        <td>
+          <div><span class="text-muted">Objective:</span>&nbsp;{{challenge.objective}}</div>
+          <span class="text-muted">Reward:</span>&nbsp;{{challenge.reward}}
+        </td>
+        <td>
+          <img [ngStyle]="{'background-image': 'url(http://localhost:8080/images/background/basic.png)','background-size': 'cover', 'width':'30%'}"
+            class="card-img p-1" src="{{challenge.rewardImage}}">
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
