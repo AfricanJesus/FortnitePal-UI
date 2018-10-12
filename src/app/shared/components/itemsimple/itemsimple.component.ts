@@ -29,10 +29,6 @@ export class ItemsimpleComponent implements OnInit {
     );
   }
 
-  getItemID(item: Item): number{
-    var split = item._links.self.href.split("/", 6);
-    return Number(split[split.length - 1]);
-  }
   getBackground(type) {
     switch (type) {
       case 'LEGENDARY':

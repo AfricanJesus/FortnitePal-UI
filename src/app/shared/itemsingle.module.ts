@@ -25,6 +25,7 @@ declare module ItemSingleModule {
     }
 
     export interface RootObject {
+      id: string;
       name: string;
       desc: string;
       rarityType: string;

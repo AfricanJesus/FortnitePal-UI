@@ -25,6 +25,7 @@ declare module ItemListModule {
     }
 
     export interface Item {
+
       name: string;
       desc: string;
       rarityType: string;
@@ -34,6 +35,7 @@ declare module ItemListModule {
       set: string;
       itemType: string;
       status: string;
+      id: string;
       _links: Links;
     }
 

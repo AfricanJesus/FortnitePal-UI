@@ -16,6 +16,7 @@ declare module ItemSimpleListModule {
 
     export interface Item {
       name: string;
+      id: string;
       images: string[];
       rarityType: string;
       _links: Links;
