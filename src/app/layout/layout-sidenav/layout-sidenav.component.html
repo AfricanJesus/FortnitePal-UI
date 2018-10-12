@@ -42,6 +42,10 @@
       </sidenav-menu>
 
       <sidenav-router-link icon="ion ion-md-desktop" route="/unreleased" [active]="isActive('/unreleased')">Unreleased Items</sidenav-router-link>
+
+      <sidenav-menu icon="ion ion-md-desktop" text="Admin"[active]="isMenuActive('/admin')" [open]="isMenuOpen('/admin')">
+        <sidenav-router-link icon="ion ion-md-desktop" route="/admin/items" [active]="isActive('/admin/items')">Items</sidenav-router-link>
+      </sidenav-menu>
     </div>
   </div>
 </sidenav>
