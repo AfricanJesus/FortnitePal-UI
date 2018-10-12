@@ -5,6 +5,7 @@ import { Layout2Component } from './layout/layout-2/layout-2.component';
 import {UnreleasedComponent} from "./unreleased/unreleased.component";
 import {HomeComponent} from "./home/home.component";
 import {DetailComponent} from "./detail/detail.component";
+import {AdminComponent} from "./admin/admin.component";
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'unreleased', component: Layout2Component, children: [
     { path: '', component: UnreleasedComponent },
   ]},
+  { path: 'admin', component: Layout2Component, loadChildren: './admin/admin.module#AdminModule'},
   { path: 'skins', component: Layout2Component, loadChildren: './skins/skins.module#SkinsModule'},
   { path: 'emote', component: Layout2Component, loadChildren: './emote/emote.module#EmoteModule'},
   { path: 'seasons', component: Layout2Component, loadChildren: './seasons/seasons.module#SeasonsModule'},

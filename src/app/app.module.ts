@@ -22,6 +22,7 @@ import { LayoutModule } from './layout/layout.module';
 import {HomeComponent} from "./home/home.component";
 import {DetailComponent } from './detail/detail.component';
 import {UnreleasedComponent} from "./unreleased/unreleased.component";
+import {AdminComponent} from "./admin/admin.component";
 
 import {HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "./shared/shared.module";
@@ -31,7 +32,7 @@ import {ItemSingleService} from "./shared/services/itemsingle.service";
 import {ItemListService} from "./shared/services/itemlist.service";
 import {ItemSimpleListService} from "./shared/services/itemsimplelist.service";
 import {StylesetService} from "./shared/services/styleset.service";
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+
 
 
 
@@ -48,7 +49,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     HomeComponent,
     UnreleasedComponent,
     DetailComponent,
-    LoadingSpinnerComponent
+    AdminComponent
   ],
   imports: [
     BrowserModule,
