@@ -11,7 +11,7 @@ import {EmoticonComponent} from "./emoticon/emoticon.component";
 import {SprayComponent} from "./spray/spray.component";
 import {ToyComponent} from "./toy/toy.component";
 
-import {SharedModule} from "../shared/shared.module";
+import {SharedModule} from "../shared/interfaces/shared.module";
 
 @NgModule({
   imports: [

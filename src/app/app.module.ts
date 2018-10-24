@@ -25,7 +25,7 @@ import {UnreleasedComponent} from "./unreleased/unreleased.component";
 import {AdminComponent} from "./admin/admin.component";
 
 import {HttpClientModule} from "@angular/common/http";
-import {SharedModule} from "./shared/shared.module";
+import {SharedModule} from "./shared/interfaces/shared.module";
 
 
 import {ItemSingleService} from "./shared/services/itemsingle.service";
