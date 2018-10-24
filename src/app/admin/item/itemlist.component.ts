@@ -4,7 +4,6 @@ import { AppService } from '../../app.service';
 import { ItemListService} from "../../shared/services/itemlist.service";
 
 import RootObject = ItemListModule.RootObject;
-import Item = ItemListModule.Item;
 
 
 
@@ -123,4 +122,5 @@ export class ItemlistComponent {
         return '#7BCC41';
     }
   }
+
 }
