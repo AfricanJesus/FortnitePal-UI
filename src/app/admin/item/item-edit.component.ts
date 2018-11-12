@@ -1,50 +1,50 @@
 import {Component, OnInit} from '@angular/core';
-
 import {AppService} from '../../app.service';
-import {FormGroup, Validators, FormBuilder} from "@angular/forms";
-import {ItemSingleService} from "../../shared/services/itemsingle.service";
+import {FormGroup, Validators, FormBuilder, FormControl, FormArray} from "@angular/forms";
+import {ItemService} from "../../shared/services/item.service";
 import {Observable} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
-import RootObject = ItemSingleModule.RootObject;
+
+
+import ItemObject = ItemSingleModule.ItemObject;
 
 
 @Component({
   selector: 'app-admin-itemedit',
-  templateUrl: './itemedit.component.html'
+  templateUrl: './item-edit.component.html'
 })
-export class ItemeditComponent implements OnInit {
+export class ItemEditComponent implements OnInit {
 
   itemForm: FormGroup;
-  item: RootObject;
+  item: ItemObject;
   id: number;
 
-  constructor(private appService: AppService, private itemSingleService: ItemSingleService, private fb: FormBuilder, private route: ActivatedRoute) {
+  constructor(private appService: AppService, private itemSingleService: ItemService, private fb: FormBuilder, private route: ActivatedRoute) {
     this.appService.pageTitle = 'Edit';
   }
 
-  save() {
-    console.log(this.itemForm);
-    if (this.itemForm.valid) {
-      this.itemSingleService.createItem(this.itemForm.value).subscribe(
-        data => {
-          this.itemForm.reset();
-          return true;
-        },
-        error => {
-          return Observable.throw(error);
-        }
-      )
-    } else {
-      console.log("asd");
-    }
+  saveItem(): void {
+    let i = Object.assign({}, this.item, this.itemForm.value);
+    console.log(i);
+    this.itemSingleService.updateItem(i)
+      .subscribe(() => this.onSaveComplete());
   }
+
+  onSaveComplete(): void {
+    this.itemForm.reset();
+  }
+
+  editItem(): void {
+    //this.itemSingleService.updateItem(i).subscribe(() => this.onSaveComplete(), (error:any) => this.errorMessage = <any>error)
+  }
+
 
   ngOnInit(): void {
     this.itemForm = this.fb.group({
       name: ['null', Validators.required],
       desc: ['null', Validators.required],
       rarityType: ['null', Validators.required],
-      images: [''],
+      images: this.fb.array([]),
       obtained: this.fb.group({
         season: ['0', Validators.required],
         tier: ['0', Validators.required],
@@ -59,16 +59,9 @@ export class ItemeditComponent implements OnInit {
       itemType: ['null', Validators.required],
       status: ['null', Validators.required],
     });
-    // if(this.id == 0){
-    //   Observable.create((observer: any) => {
-    //     observer.next(this.initializeItem());
-    //     observer.complete();
-    //     }
-    //   )
-    // }else
     {
       this.itemSingleService.getItem(this.route.snapshot.params.id).subscribe(
-        (data: RootObject) => {
+        (data: ItemObject) => {
           this.itemRetrieved(data)
         },
         err => console.error(err),
@@ -77,7 +70,7 @@ export class ItemeditComponent implements OnInit {
     }
   }
 
-  itemRetrieved(item: RootObject): void {
+  itemRetrieved(item: ItemObject): void {
     if (this.itemForm) {
       this.itemForm.reset();
     }
@@ -104,20 +97,28 @@ export class ItemeditComponent implements OnInit {
     })
   }
 
-  initializeItem(): RootObject {
-    return {
-      id: null,
-      name: null,
-      desc: null,
-      rarityType: null,
-      images: null,
-      obtained: null,
-      styleSet: null,
-      set: null,
-      itemType: null,
-      status: null,
-      _links: null
-    };
+  createImage(): FormControl {
+    return this.fb.control({image: ['']});
   }
+
+  get images(): FormArray {
+    return <FormArray>this.itemForm.get('images');
+  }
+
+  // initializeItem(): RootObject {
+  //   return {
+  //     id: null,
+  //     name: null,
+  //     desc: null,
+  //     rarityType: null,
+  //     images: null,
+  //     obtained: null,
+  //     styleSet: null,
+  //     set: null,
+  //     itemType: null,
+  //     status: null,
+  //     _links: null
+  //   };
+  // }
 
 }

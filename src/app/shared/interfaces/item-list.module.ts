@@ -84,7 +84,7 @@ declare module ItemListModule {
     number: number;
   }
 
-  export interface RootObject {
+  export interface ItemsObject {
     _embedded: Embedded;
     _links: Links2;
     page: Page;

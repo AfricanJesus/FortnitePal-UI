@@ -24,7 +24,7 @@ declare module ItemSingleModule {
     item: Item;
   }
 
-  export interface RootObject {
+  export interface ItemObject {
     id: string;
     name: string;
     desc: string;

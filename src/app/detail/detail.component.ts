@@ -1,8 +1,12 @@
 import {Component,OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {AppService} from "../app.service";
-import {ItemSingleService} from "../shared/services/itemsingle.service";
-import RootObject = ItemSingleModule.RootObject;
+import {ItemService} from "../shared/services/item.service";
+
+// *******************************************************************************//
+import ItemObject = ItemSingleModule.ItemObject;
+
+
 
 @Component({
   selector: 'app-detail',
@@ -10,12 +14,11 @@ import RootObject = ItemSingleModule.RootObject;
 })
 export class DetailComponent implements OnInit {
 
-  item: RootObject;
+  item: ItemObject;
   url: string = 'http://localhost:8080/api/items/';
   id: number;
-  sub: any;
 
-  constructor(private appService: AppService, private route: ActivatedRoute, private itemSingleService: ItemSingleService, private router: Router) {
+  constructor(private appService: AppService, private route: ActivatedRoute, private itemSingleService: ItemService, private router: Router) {
     this.appService.pageTitle = 'Detail';
 
     // override the route reuse strategy
@@ -35,7 +38,7 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.itemSingleService.getItem(this.route.snapshot.params.id).subscribe(
-      (data: RootObject) => {
+      (data: ItemObject) => {
         this.item = data
       },
       err => console.error(err),

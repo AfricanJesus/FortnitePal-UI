@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 
-import RootObject = ItemSimpleListModule.RootObject;
-import Item = ItemSimpleListModule.Item;
 
-import {ItemSimpleListService} from "../../services/itemsimplelist.service";
+import {ItemService} from "../../services/item.service";
+import ItemsObject = ItemListModule.ItemsObject;
+import Item = ItemListModule.Item;
 
 @Component({
   selector: 'app-itemsimple',
@@ -14,7 +14,7 @@ export class ItemsimpleComponent implements OnInit {
   items: Item[];
   @Input() url: string;
 
-  constructor(private itemSimpleService: ItemSimpleListService) {
+  constructor(private itemService: ItemService) {
   }
 
   ngOnInit() {
@@ -22,8 +22,10 @@ export class ItemsimpleComponent implements OnInit {
   }
 
   getItems(){
-    this.itemSimpleService.getItems(this.url).subscribe(
-      (data: RootObject) => { this.items = data._embedded.items},
+    this.itemService.getItems(this.url).subscribe(
+      (data: ItemsObject) => {
+        this.items = data._embedded.items
+      },
       err => console.error(err),
       () => console.log('Data Loaded')
     );

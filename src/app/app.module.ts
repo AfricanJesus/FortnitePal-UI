@@ -28,10 +28,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "./shared/interfaces/shared.module";
 
 
-import {ItemSingleService} from "./shared/services/itemsingle.service";
-import {ItemListService} from "./shared/services/itemlist.service";
-import {ItemSimpleListService} from "./shared/services/itemsimplelist.service";
+import {ItemService} from "./shared/services/item.service";
 import {StylesetService} from "./shared/services/styleset.service";
+import {CallbackComponent} from './callback/callback.component';
+import {AuthService} from "./shared/services/auth.service";
+import {AuthGuard} from "./shared/services/auth.guard";
 
 
 
@@ -49,7 +50,8 @@ import {StylesetService} from "./shared/services/styleset.service";
     HomeComponent,
     UnreleasedComponent,
     DetailComponent,
-    AdminComponent
+    AdminComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -66,10 +68,10 @@ import {StylesetService} from "./shared/services/styleset.service";
   providers: [
     Title,
     AppService,
-    ItemSimpleListService,
-    ItemListService,
-    ItemSingleService,
-    StylesetService
+    ItemService,
+    StylesetService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [
     AppComponent

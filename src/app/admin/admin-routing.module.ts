@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ItemlistComponent} from "./item/itemlist.component";
-import {ItemeditComponent} from "./item/itemedit.component";
-import {ItemviewComponent} from "./item/itemview.component";
+import {ItemListComponent} from "./item/item-list.component";
+import {ItemEditComponent} from "./item/item-edit.component";
+import {ItemViewComponent} from "./item/item-view.component";
 import {ItemEditGuard} from "./item/item-guard.service";
 
 
@@ -11,9 +11,9 @@ import {ItemEditGuard} from "./item/item-guard.service";
 
 @NgModule({
   imports: [RouterModule.forChild([
-    {path: 'items/view/:id', component: ItemviewComponent},
-    {path: 'items/edit/:id', canDeactivate: [ItemEditGuard], component: ItemeditComponent},
-    {path: 'items', component: ItemlistComponent}
+    {path: 'items/view/:id', component: ItemViewComponent},
+    {path: 'items/edit/:id', canDeactivate: [ItemEditGuard], component: ItemEditComponent},
+    {path: 'items', component: ItemListComponent}
 
   ])],
   exports: [RouterModule]

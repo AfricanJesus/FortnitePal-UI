@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, Event as RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { AppService } from './app.service';
 import { LayoutService } from './layout/layout.service';
+import {AuthService} from "./shared/services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { LayoutService } from './layout/layout.service';
   styles: [':host { display: block; }']
 })
 export class AppComponent {
-  constructor(private router: Router, private appService: AppService, private layoutService: LayoutService) {
+  constructor(private router: Router, private appService: AppService, private layoutService: LayoutService, private authService: AuthService) {
     // Subscribe to router events to handle page transition
     this.router.events.subscribe(this.navigationInterceptor.bind(this));
 
@@ -25,6 +26,7 @@ export class AppComponent {
         }`;
       document.head.appendChild(style);
     }
+    authService.handleAuthentication();
   }
 
   private navigationInterceptor(e: RouterEvent) {

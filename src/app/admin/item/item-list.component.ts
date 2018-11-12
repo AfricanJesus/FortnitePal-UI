@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../app.service';
 
-import { ItemListService} from "../../shared/services/itemlist.service";
 
-import RootObject = ItemListModule.RootObject;
+import ItemsObject = ItemListModule.ItemsObject;
+import {ItemService} from "../../shared/services/item.service";
 
 
 
 @Component({
-  selector: 'app-itemlist',
-  templateUrl: './itemlist.component.html'
+  selector: 'app-admin-itemlist',
+  templateUrl: './item-list.component.html'
 })
-export class ItemlistComponent {
+export class ItemListComponent {
 
   url: string = 'http://localhost:8080/api/items?size=5000';
 
-  constructor(private appService: AppService, private itemListService: ItemListService) {
+  constructor(private appService: AppService, private itemService: ItemService) {
     this.appService.pageTitle = 'Items';
     // this.loadData();
     this.getItems();
@@ -38,8 +38,8 @@ export class ItemlistComponent {
   originalItemData: Object[] = [];
 
   getItems() {
-    this.itemListService.getItems(this.url).subscribe(
-      (data: RootObject) => {
+    this.itemService.getItems(this.url).subscribe(
+      (data: ItemsObject) => {
         this.originalItemData = data._embedded.items;
         this.update();
       },
