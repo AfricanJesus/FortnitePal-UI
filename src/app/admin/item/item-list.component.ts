@@ -13,7 +13,7 @@ import {ItemService} from "../../shared/services/item.service";
 })
 export class ItemListComponent {
 
-  url: string = 'http://localhost:8080/api/items?size=5000';
+  url: string = '/api/items?size=5000';
 
   constructor(private appService: AppService, private itemService: ItemService) {
     this.appService.pageTitle = 'Items';

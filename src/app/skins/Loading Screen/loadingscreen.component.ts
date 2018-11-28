@@ -7,7 +7,7 @@ import { AppService } from '../../app.service';
 })
 export class LoadingScreenComponent {
 
-  url: string = 'http://localhost:8080/api/items/search/findByItemType?item=LOADINGSCREEN&sort=rarityType&projection=itemModelSimple&size=500&sort=name';
+  url: string = '/api/items/search/findByItemType?item=LOADINGSCREEN&sort=rarityType&projection=itemModelSimple&size=500&sort=name';
 
   constructor(private appService: AppService) {
     this.appService.pageTitle = 'Loading Screen';

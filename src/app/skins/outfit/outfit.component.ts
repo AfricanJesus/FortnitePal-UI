@@ -7,7 +7,7 @@ import {AppService } from '../../app.service';
   templateUrl: './outfit.component.html'
 })
 export class OutfitComponent{
-  url: string = 'http://localhost:8080/api/items/search/findByItemType?item=OUTFIT&sort=rarityType&projection=itemModelSimple&size=500&sort=name';
+  url: string = '/api/items/search/findByItemType?item=OUTFIT&sort=rarityType&projection=itemModelSimple&size=500&sort=name';
 
   constructor(private appService: AppService) {
     this.appService.pageTitle = 'Outfit';

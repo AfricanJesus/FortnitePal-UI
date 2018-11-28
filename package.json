@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0 --disable-host-check",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --extract-css",
     "prod": "ng build --prod --output-hashing=media",
     "prod:hashed": "ng build --prod",

@@ -15,7 +15,7 @@ import ItemObject = ItemSingleModule.ItemObject;
 export class DetailComponent implements OnInit {
 
   item: ItemObject;
-  url: string = 'http://localhost:8080/api/items/';
+  url: string = '/api/items/';
   id: number;
 
   constructor(private appService: AppService, private route: ActivatedRoute, private itemSingleService: ItemService, private router: Router) {
@@ -49,15 +49,15 @@ export class DetailComponent implements OnInit {
   getBackground(type) {
     switch (type) {
       case 'LEGENDARY':
-        return 'http://localhost:8080/images/background/legendary.png';
+        return '/images/background/legendary.png';
       case 'EPIC':
-        return 'http://localhost:8080/images/background/epic.png';
+        return '/images/background/epic.png';
       case 'RARE':
-        return 'http://localhost:8080/images/background/rare.png';
+        return '/images/background/rare.png';
       case 'COMMON':
-        return 'http://localhost:8080/images/background/common.png';
+        return '/images/background/common.png';
       case 'UNCOMMON':
-        return 'http://localhost:8080/images/background/uncommon.png';
+        return '/images/background/uncommon.png';
     }
   }
 

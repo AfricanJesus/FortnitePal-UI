@@ -41,7 +41,7 @@
                   {{item.obtained.includedInName}}
                 </li>
                 <li *ngIf="item.obtained.vbuckPrice != 0">
-                  <img src="http://localhost:8080/images/icons/vbucks.png" width="3%"> {{item.obtained.vbuckPrice}}
+                  <img src="/images/icons/vbucks.png" width="3%"> {{item.obtained.vbuckPrice}}
                 </li>
                 <li *ngIf="item.obtained.price != 0">Price: {{item.obtained.price | currency}}</li>
                 <li *ngIf="item.obtained.challenge != 'null'">Complete Challenge(s) From:
@@ -66,13 +66,13 @@
             <div *ngIf="item.itemType == 'OUTFIT'">
               <span class="text-muted">Backbling:</span>&nbsp;
               <app-itemsimple class="text-tiny"
-                              [url]="'http://localhost:8080/api/items/search/findByObtained_IncludedInName?sort=desc&sort=rarityType&projection=itemModelSimple&includedInName=' + item?.name"></app-itemsimple>
+                              [url]="'/api/items/search/findByObtained_IncludedInName?sort=desc&sort=rarityType&projection=itemModelSimple&includedInName=' + item?.name"></app-itemsimple>
             </div>
             <!--Display outfit-->
             <div *ngIf="item.itemType == 'BACKBLING'">
               <span class="text-muted">Outfit:</span>&nbsp;
               <app-itemsimple class="text-tiny"
-                              [url]="'http://localhost:8080/api/items/search/findByNameAndItemType?sort=desc&projection=itemModelSimple&item=OUTFIT&name=' + item?.obtained.includedInName"></app-itemsimple>
+                              [url]="'/api/items/search/findByNameAndItemType?sort=desc&projection=itemModelSimple&item=OUTFIT&name=' + item?.obtained.includedInName"></app-itemsimple>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@
   <!--Display style set if item has existing style set-->
   <div *ngIf="item?.styleSet != 'null'">
     <app-styleset
-      [url]="'http://localhost:8080/api/styleSets/search/findByStyleSetName?name=' + item.styleSet"></app-styleset>
+      [url]="'/api/styleSets/search/findByStyleSetName?name=' + item.styleSet"></app-styleset>
   </div>
 
   <!--Display items in same set-->
@@ -94,7 +94,7 @@
       </div>
       <div class="card-body">
         <app-itemsimple
-          [url]="'http://localhost:8080/api/items/search/findBySet?sort=desc&sort=rarityType&projection=itemModelSimple&set=' + item.set"></app-itemsimple>
+          [url]="'/api/items/search/findBySet?sort=desc&sort=rarityType&projection=itemModelSimple&set=' + item.set"></app-itemsimple>
       </div>
     </div>
   </div>
@@ -107,7 +107,7 @@
       </div>
       <div class="card-body">
         <app-itemsimple
-          [url]="'http://localhost:8080/api/items/search/findByObtained_Promo?sort=desc&size=500&promo=' + item.obtained.promo"></app-itemsimple>
+          [url]="'/api/items/search/findByObtained_Promo?sort=desc&size=500&promo=' + item.obtained.promo"></app-itemsimple>
       </div>
     </div>
   </div>
@@ -115,7 +115,7 @@
   <!--Display challenges for how item is obtained-->
   <div *ngIf="item?.obtained.challenge != 'null'">
     <app-challengeset
-      [url]="'http://localhost:8080/api/challengeSets/search/findByChallengeSetName?name=' + item.obtained.challenge"
+      [url]="'/api/challengeSets/search/findByChallengeSetName?name=' + item.obtained.challenge"
       [rarity]="item.rarityType"></app-challengeset>
   </div>
 
