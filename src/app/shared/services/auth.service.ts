@@ -11,7 +11,7 @@ export class AuthService {
     domain: 'tyreegustafson.auth0.com',
     responseType: 'token id_token',
     audience: 'http://localhost:8080',
-    redirectUri: 'http://localhost:4200/admin/items',
+    redirectUri: 'http://localhost:4200/home',
     scope: 'openid admin:items'
   });
 

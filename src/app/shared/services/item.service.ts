@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class ItemService {
 
-  baseUrl: string = 'http://localhost:8080/api/items/';
+  baseUrl: string = '/api/items/';
 
   constructor(private  http: HttpClient) {
   }
@@ -39,7 +39,7 @@ export class ItemService {
   createItem(item: ItemObject) {
     let body = JSON.stringify(item, null, 2);
     console.log(body);
-    return this.http.post('http://localhost:8080/api/items', body, httpOptions);
+    return this.http.post('/api/items', body, httpOptions);
   }
 
   updateItem(item: ItemObject): Observable<ItemObject> {
