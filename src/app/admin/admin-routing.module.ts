@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {ItemListComponent} from "./item/list/item-list.component";
 import {ItemEditComponent} from "./item/edit/item-edit.component";
-import {ItemViewComponent} from "./item/item-view.component";
+import {ItemViewComponent} from "./item/view/item-view.component";
 import {ItemEditGuard} from "./item/item-guard.service";
 import {UploadComponent} from "./upload/upload.component";
 
