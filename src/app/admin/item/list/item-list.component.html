@@ -72,8 +72,8 @@
         <td class="align-middle">{{item.set}}</td>
         <td class="align-middle">{{item.itemType}}</td>
         <td class="align-middle">
-          <span class="badge badge-outline-success" *ngIf="item.status == 'RELEASED'">{{item.status}}</span>
-          <span class="badge badge-outline-danger" *ngIf="item.status == 'UNRELEASED'">{{item.status}}</span>
+          <span class="badge"
+                [ngClass]="{'badge-outline-success':item.status == 'RELEASED', 'badge-outline-danger':item.status == 'UNRELEASED'}">{{item.status}}</span>
         </td>
         <td class="text-center text-nowrap align-middle">
           <a target="_blank" [routerLink]="['/admin/items/view/', item.id]"

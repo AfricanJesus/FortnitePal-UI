@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AppService} from '../../../app.service';
-import {ItemService} from "../../../shared/services/item.service";
+import {AppService} from '../../app.service';
+import {ItemService} from "../../shared/services/item.service";
 import {ActivatedRoute} from "@angular/router";
 import ItemObject = ItemSingleModule.ItemObject;
 

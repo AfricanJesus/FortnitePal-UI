@@ -57,9 +57,7 @@
             </div>
             <div>
               <span class="text-muted">Release Status:</span>&nbsp;
-              <span *ngIf="item.status == 'RELEASED'"
-                    style="color: limegreen; font-weight: bold">{{item?.status}}</span>
-              <span *ngIf="item.status == 'UNRELEASED'" style="color: red; font-weight: bold">{{item.status}}</span>
+              <span [ngStyle]="{'font-weight': 'bold', 'color': item.status == 'RELEASED' ? 'limegreen' : 'red'}">{{item.status}}</span>
             </div>
 
             <!--Display backbling-->
