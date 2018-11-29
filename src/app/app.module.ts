@@ -33,6 +33,7 @@ import {StylesetService} from "./shared/services/styleset.service";
 import {CallbackComponent} from './callback/callback.component';
 import {AuthService} from "./shared/services/auth.service";
 import {AuthGuard} from "./shared/services/auth.guard";
+import {UploadService} from "./shared/services/upload.service";
 
 
 
@@ -71,7 +72,8 @@ import {AuthGuard} from "./shared/services/auth.guard";
     ItemService,
     StylesetService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UploadService
   ],
   bootstrap: [
     AppComponent
