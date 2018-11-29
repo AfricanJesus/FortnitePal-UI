@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {CanDeactivate} from "@angular/router";
-import {ItemEditComponent} from "./item-edit.component";
+import {ItemEditComponent} from "./edit/item-edit.component";
 
 
 @Injectable()

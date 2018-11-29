@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { AppService } from '../../app.service';
+import {AppService} from '../../../app.service';
 
 
 import ItemsObject = ItemListModule.ItemsObject;
-import {ItemService} from "../../shared/services/item.service";
+import {ItemService} from "../../../shared/services/item.service";
 
 
 
@@ -28,7 +28,7 @@ export class ItemListComponent {
   searchKeys = ['id', 'name', 'itemType', 'set'];
   sortBy = 'id';
   sortDesc = false;
-  perPage = 20;
+  perPage = 50;
 
   filterVal = '';
   currentPage = 1;
@@ -120,6 +120,21 @@ export class ItemListComponent {
         return '#A0A7AD';
       case 'UNCOMMON':
         return '#7BCC41';
+    }
+  }
+
+  getBackground(type) {
+    switch (type) {
+      case 'LEGENDARY':
+        return '/images/background/legendary.png';
+      case 'EPIC':
+        return '/images/background/epic.png';
+      case 'RARE':
+        return '/images/background/rare.png';
+      case 'COMMON':
+        return '/images/background/common.png';
+      case 'UNCOMMON':
+        return '/images/background/uncommon.png';
     }
   }
 

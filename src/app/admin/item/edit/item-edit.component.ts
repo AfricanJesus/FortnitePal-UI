@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AppService} from '../../app.service';
+import {AppService} from '../../../app.service';
 import {FormGroup, Validators, FormBuilder, FormControl, FormArray} from "@angular/forms";
-import {ItemService} from "../../shared/services/item.service";
+import {ItemService} from "../../../shared/services/item.service";
 import {Observable} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 

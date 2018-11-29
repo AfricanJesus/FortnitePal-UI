@@ -9,14 +9,10 @@
 
   <!-- Table controls -->
   <div class="card-body">
-
     <div class="row">
       <div class="col">
         Per page: &nbsp;
-        <select
-          [(ngModel)]="perPage"
-          (change)="update()"
-          class="custom-select custom-select-sm d-inline-block w-auto">
+        <select [(ngModel)]="perPage" (change)="update()" class="custom-select custom-select-sm d-inline-block w-auto">
           <option *ngFor="let limit of [10, 20, 30, 40, 50]">{{limit}}</option>
         </select>
       </div>
@@ -28,7 +24,6 @@
                placeholder="Search...">
       </div>
     </div>
-
   </div>
   <!-- / Table controls -->
 
@@ -39,37 +34,39 @@
       <thead>
       <tr>
         <th class="text-nowrap cursor-pointer" (click)="setSort('id')">
-          ID<i class="ion text-muted ml-2" *ngIf="sortBy=='id'" [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i>
-        </th>
-        <th class="text-nowrap cursor-pointer">
+          ID<i class="ion text-muted ml-2" *ngIf="sortBy=='id'"
+               [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i></th>
+        <th class="text-nowrap cursor-pointer" style=" white-space: nowrap; width: 1%">
           Image
         </th>
         <th class="text-nowrap cursor-pointer" (click)="setSort('name')">
-          Name<i class="ion text-muted ml-2" *ngIf="sortBy=='name'" [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i>
-        </th>
+          Name<i class="ion text-muted ml-2" *ngIf="sortBy=='name'"
+                 [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i></th>
         <th class="text-nowrap cursor-pointer" (click)="setSort('rarityType')">
-          Rarity Type<i class="ion text-muted ml-2" *ngIf="sortBy=='rarityType'" [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i>
-        </th>
+          Rarity Type<i class="ion text-muted ml-2" *ngIf="sortBy=='rarityType'"
+                        [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i></th>
         <th class="text-nowrap cursor-pointer" (click)="setSort('set')">
-          Set<i class="ion text-muted ml-2" *ngIf="sortBy=='set'" [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i>
-        </th>
+          Set<i class="ion text-muted ml-2" *ngIf="sortBy=='set'"
+                [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i></th>
         <th class="text-nowrap cursor-pointer" (click)="setSort('itemType')">
-          Item Type<i class="ion text-muted ml-2" *ngIf="sortBy=='itemType'" [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i>
-        </th>
+          Item Type<i class="ion text-muted ml-2" *ngIf="sortBy=='itemType'"
+                      [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i></th>
         <th class="text-nowrap cursor-pointer" (click)="setSort('status')">
-          Release Status<i class="ion text-muted ml-2" *ngIf="sortBy=='status'" [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i>
-        </th>
+          Release Status<i class="ion text-muted ml-2" *ngIf="sortBy=='status'"
+                           [ngClass]="'ion-md-arrow-' + (sortDesc ? 'down' : 'up')"></i></th>
         <th></th>
       </tr>
       </thead>
+
       <tbody>
       <tr *ngFor="let item of itemData">
         <td class="align-middle">{{item.id}}</td>
-        <td class="align-middle">
+        <td class="align-middle"
+            [ngStyle]="{'background-image': 'url(' + getBackground(item.rarityType) + ')','background-size': 'contain','background-repeat':'no-repeat'}">
           <img class="ui-w-60" src="{{item.images[0]}}">
         </td>
         <td class="align-middle">{{item.name}}</td>
-        <td >
+        <td>
           <span [ngStyle]="{'color':getRarityColor(item.rarityType), 'font-weight': 'bold'}">{{item.rarityType}}</span>
         </td>
         <td class="align-middle">{{item.set}}</td>
@@ -83,7 +80,8 @@
              class="btn btn-default btn-xs icon-btn md-btn-flat" ngbTooltip="View"><i class="ion ion-md-eye"></i></a>
           <a target="_blank" [routerLink]="['/admin/items/edit/', item.id]"
              class="btn btn-default btn-xs icon-btn md-btn-flat" ngbTooltip="Edit"><i class="ion ion-md-create"></i></a>
-          <a href="javascript:void(0)" class="btn btn-default btn-xs icon-btn md-btn-flat" ngbTooltip="Remove"><i class="ion ion-md-close"></i></a>
+          <a href="javascript:void(0)" class="btn btn-default btn-xs icon-btn md-btn-flat" ngbTooltip="Remove"><i
+            class="ion ion-md-close"></i></a>
         </td>
       </tr>
       </tbody>
@@ -93,7 +91,6 @@
 
   <!-- Pagination -->
   <div class="card-body py-0">
-
     <div class="row">
       <div class="col-sm text-sm-left text-center pt-3">
         <span class="text-muted" *ngIf="totalItems">Page {{ currentPage }} of {{ totalPages }}</span>
@@ -105,10 +102,12 @@
           [(page)]="currentPage"
           (pageChange)="update()"
           size="sm"
+          [boundaryLinks]="true"
+          [maxSize]="8"
           class="d-flex justify-content-center justify-content-sm-end m-0"></ngb-pagination>
       </div>
     </div>
-
   </div>
   <!-- / Pagination -->
+
 </div>
