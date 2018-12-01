@@ -1,0 +1,48 @@
+<h4 class="d-flex justify-content-between align-items-center w-100 font-weight-bold py-3 mb-4">
+  <div>Manage Images</div>
+</h4>
+<app-admin-upload></app-admin-upload>
+
+<div class="card mb-4">
+  <h6 class="card-header with-elements">
+    <div class="card-header-title">File Tree and Image Viewer</div>
+    <div class="card-header-elements ml-auto">
+      <label class="text m-0">
+        <span class="text-light text-tiny font-weight-semibold align-middle">
+          REFRESH FILE TREE
+        </span>
+        <span class=" d-inline-block align-middle mr-0 ml-2">
+          <button type="button" class="btn btn-outline-primary btn-xs icon-btn md-btn-flat" (click)="refreshTree()">
+            <i class="ion ion-md-sync"></i>
+          </button>
+        </span>
+      </label>
+    </div>
+  </h6>
+  <div class="row no-gutters row-bordered">
+    <div class="col-md-8 col-lg-12 col-xl-8">
+      <div class="card-body">
+        <kendo-treeview
+          [nodes]="folderNodes"
+          textField="name"
+          kendoTreeViewExpandable
+          kendoTreeViewSelectable
+          kendoTreeViewHierarchyBinding
+          childrenField="files"
+          [(selectedKeys)]="selectedKeys"
+          (nodeClick)="changeImage()">
+        </kendo-treeview>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-lg-12 col-xl-4">
+      <div class="card-body">
+        <img [(src)]="imageUrl"
+             style="width: 100%; height: 100%; background-image: url(/images/background/basic.png); background-size: cover">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

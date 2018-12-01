@@ -33,7 +33,10 @@ import {StylesetService} from "./shared/services/styleset.service";
 import {CallbackComponent} from './callback/callback.component';
 import {AuthService} from "./shared/services/auth.service";
 import {AuthGuard} from "./shared/services/auth.guard";
-import {UploadService} from "./shared/services/upload.service";
+import {FileService} from "./shared/services/file.service";
+import {TreeViewModule} from '@progress/kendo-angular-treeview';
+
+
 
 
 
@@ -64,7 +67,8 @@ import {UploadService} from "./shared/services/upload.service";
     AppRoutingModule,
     LayoutModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    TreeViewModule
   ],
   providers: [
     Title,
@@ -73,7 +77,7 @@ import {UploadService} from "./shared/services/upload.service";
     StylesetService,
     AuthService,
     AuthGuard,
-    UploadService
+    FileService
   ],
   bootstrap: [
     AppComponent
