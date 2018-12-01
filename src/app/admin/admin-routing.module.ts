@@ -4,7 +4,7 @@ import {ItemListComponent} from "./item/list/item-list.component";
 import {ItemEditComponent} from "./item/edit/item-edit.component";
 import {ItemViewComponent} from "./item/view/item-view.component";
 import {ItemEditGuard} from "./item/item-guard.service";
-import {UploadComponent} from "./upload/upload.component";
+import {ManageImageComponent} from "./image/manage/manage-image.component";
 
 
 
@@ -12,7 +12,7 @@ import {UploadComponent} from "./upload/upload.component";
 
 @NgModule({
   imports: [RouterModule.forChild([
-    {path: 'upload', component: UploadComponent},
+    {path: 'manage', component: ManageImageComponent},
     {path: 'items/view/:id', component: ItemViewComponent},
     {path: 'items/edit/:id', canDeactivate: [ItemEditGuard], component: ItemEditComponent},
     {path: 'items', component: ItemListComponent}
