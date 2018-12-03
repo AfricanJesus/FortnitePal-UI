@@ -9,7 +9,7 @@ import {FileUploadModule} from "ng2-file-upload";
 import {SelectModule} from "ng-select";
 import {TreeViewModule} from "@progress/kendo-angular-treeview";
 
-import {SharedModule} from "../shared/interfaces/shared.module";
+import {SharedModule} from "../shared/shared.module";
 import {ItemListComponent} from "./item/list/item-list.component";
 import {ItemEditComponent} from "./item/edit/item-edit.component";
 import {ItemViewComponent} from "./item/view/item-view.component";
