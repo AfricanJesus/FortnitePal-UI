@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
+    "start": "node server.js ng serve",
     "build": "ng build --extract-css",
     "prod": "ng build --prod --output-hashing=media",
     "prod:hashed": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "npm rebuild node-sass"
+    "postinstall": "ng build --aot --prod"
   },
   "dependencies": {
     "@agm/core": "~1.0.0-beta.2",
@@ -116,5 +116,9 @@
   },
   "resolutions": {
     "@angular-devkit/build-angular/node-sass": "~4.7.2"
+  },
+  "engines": {
+    "node": "8.11.3",
+    "npm": "6.2.0"
   }
 }
