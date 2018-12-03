@@ -6,7 +6,7 @@
     "logLevel": "debug"
   },
   "/images/*": {
-    "target": "http://localhost:8080",
+    "target": "https://s3.us-east-2.amazonaws.com/fortnitepal",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
