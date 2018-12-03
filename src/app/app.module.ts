@@ -21,30 +21,24 @@ import { LayoutModule } from './layout/layout.module';
 
 import {HomeComponent} from "./home/home.component";
 import {DetailComponent } from './detail/detail.component';
-import {UnreleasedComponent} from "./unreleased/unreleased.component";
 import {AdminComponent} from "./admin/admin.component";
 
 import {HttpClientModule} from "@angular/common/http";
-import {SharedModule} from "./shared/interfaces/shared.module";
+import {SharedModule} from "./shared/shared.module";
 
 
 import {ItemService} from "./shared/services/item.service";
 import {StylesetService} from "./shared/services/styleset.service";
-import {CallbackComponent} from './callback/callback.component';
 import {AuthService} from "./shared/services/auth.service";
 import {AuthGuard} from "./shared/services/auth.guard";
 import {FileService} from "./shared/services/file.service";
 import {TreeViewModule} from '@progress/kendo-angular-treeview';
-
-
-
-
-
-
-
+import {ItemsComponent} from './items/items.component';
+import {RarityColorPipe} from "./shared/RarityColorPipe";
 
 // *******************************************************************************
 //
+
 
 @NgModule({
   declarations: [
@@ -52,10 +46,10 @@ import {TreeViewModule} from '@progress/kendo-angular-treeview';
 
     // Pages
     HomeComponent,
-    UnreleasedComponent,
     DetailComponent,
     AdminComponent,
-    CallbackComponent
+    ItemsComponent,
+    RarityColorPipe,
   ],
   imports: [
     BrowserModule,

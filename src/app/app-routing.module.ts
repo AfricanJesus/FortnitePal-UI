@@ -2,10 +2,10 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 import {Layout2Component} from './layout/layout-2/layout-2.component';
-import {UnreleasedComponent} from "./unreleased/unreleased.component";
 import {HomeComponent} from "./home/home.component";
 import {DetailComponent} from "./detail/detail.component";
 import {AuthGuard} from "./shared/services/auth.guard";
+import {ItemsComponent} from "./items/items.component";
 
 
 const routes: Routes = [
@@ -14,13 +14,10 @@ const routes: Routes = [
     path: '', runGuardsAndResolvers: 'always', component: Layout2Component, children: [
       {path: 'home', component: HomeComponent},
       {path: 'details/:id', component: DetailComponent},
-      {path: 'unreleased', component: UnreleasedComponent},
+      {path: 'items/:itemType', component: ItemsComponent},
       {path: '', redirectTo: '/home', pathMatch: 'full'},
     ]
   },
-  {path: 'skins', component: Layout2Component, loadChildren: './skins/skins.module#SkinsModule'},
-  {path: 'emote', component: Layout2Component, loadChildren: './emote/emote.module#EmoteModule'},
-  {path: 'seasons', component: Layout2Component, loadChildren: './seasons/seasons.module#SeasonsModule'},
   {
     path: 'admin',
     component: Layout2Component,

@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 
-
 import {ItemService} from "../../services/item.service";
 import ItemsObject = ItemListModule.ItemsObject;
 import Item = ItemListModule.Item;
+
 
 @Component({
   selector: 'app-itemsimple',
