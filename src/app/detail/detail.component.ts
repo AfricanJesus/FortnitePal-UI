@@ -7,7 +7,6 @@ import {ItemService} from "../shared/services/item.service";
 import ItemObject = ItemSingleModule.ItemObject;
 
 
-
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html'
@@ -18,9 +17,9 @@ export class DetailComponent implements OnInit {
   url: string = '/api/items/';
   id: number;
 
+
   constructor(private appService: AppService, private route: ActivatedRoute, private itemSingleService: ItemService, private router: Router) {
     this.appService.pageTitle = 'Detail';
-
     // override the route reuse strategy
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -42,7 +41,9 @@ export class DetailComponent implements OnInit {
         this.item = data
       },
       err => console.error(err),
-      () => console.log('Data Loaded')
+      () => {
+        console.log('Data Loaded')
+      }
     );
   }
 
@@ -58,21 +59,6 @@ export class DetailComponent implements OnInit {
         return '/images/background/common.png';
       case 'UNCOMMON':
         return '/images/background/uncommon.png';
-    }
-  }
-
-  getRarityColor(type) {
-    switch (type) {
-      case 'LEGENDARY':
-        return '#FAA763';
-      case 'EPIC':
-        return '#D65AFA';
-      case 'RARE':
-        return '#3EBAED';
-      case 'COMMON':
-        return '#A0A7AD';
-      case 'UNCOMMON':
-        return '#7BCC41';
     }
   }
 

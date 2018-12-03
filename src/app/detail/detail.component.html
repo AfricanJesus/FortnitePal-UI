@@ -29,7 +29,7 @@
           <div>
             <div>
               <span class="text-muted">Rarity:</span>&nbsp;
-              <span [ngStyle]="{'color':getRarityColor(item.rarityType)}">{{item.rarityType}}</span>
+              <span style="color: {{item.rarityType | raritycolor}}">{{item.rarityType}}</span>
             </div>
             <div>
               <span class="text-muted">Obtained By:</span>&nbsp;
