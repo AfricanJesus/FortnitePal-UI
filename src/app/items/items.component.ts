@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ItemService} from "../shared/services/item.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router, NavigationEnd} from "@angular/router";
 
 @Component({
   selector: 'app-item-simple-list',
@@ -10,14 +9,31 @@ export class ItemsComponent implements OnInit {
 
   url: string;
   flag: string;
+  numOfItems: number;
 
-  constructor(private itemService: ItemService, private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
+    // override the route reuse strategy
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        // trick the Router into believing it's last link wasn't previously loaded
+        this.router.navigated = false;
+        // if you need to scroll back to top, here is the right place
+        window.scrollTo(0, 0);
+      }
+    });
   }
 
   ngOnInit() {
     this.flag = this.route.snapshot.params.itemType;
-    console.log(this.flag);
     this.setURL(this.flag);
+  }
+
+  get self(): ItemsComponent {
+    return this;
   }
 
   setURL(itemType: string): void {

@@ -1,5 +1,5 @@
 import {Component,OnInit} from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {AppService} from "../app.service";
 import {ItemService} from "../shared/services/item.service";
 
@@ -18,21 +18,7 @@ export class DetailComponent implements OnInit {
   id: number;
 
 
-  constructor(private appService: AppService, private route: ActivatedRoute, private itemSingleService: ItemService, private router: Router) {
-    this.appService.pageTitle = 'Detail';
-    // override the route reuse strategy
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      return false;
-    }
-
-    this.router.events.subscribe((evt) => {
-      if (evt instanceof NavigationEnd) {
-        // trick the Router into believing it's last link wasn't previously loaded
-        this.router.navigated = false;
-        // if you need to scroll back to top, here is the right place
-        window.scrollTo(0, 0);
-      }
-    });
+  constructor(private appService: AppService, private route: ActivatedRoute, private itemSingleService: ItemService) {
   }
 
   ngOnInit() {
@@ -42,7 +28,7 @@ export class DetailComponent implements OnInit {
       },
       err => console.error(err),
       () => {
-        console.log('Data Loaded')
+        console.log('Data Loaded'), this.appService.pageTitle = this.item.name
       }
     );
   }
