@@ -1,20 +1,17 @@
 {
   "/api/*": {
-    "target": "http://localhost:8080",
+    "target": "http://fortnitepaltomcat.us-east-1.elasticbeanstalk.com/",
     "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug"
+    "changeOrigin": true
   },
   "/images/*": {
     "target": "https://s3.us-east-2.amazonaws.com/fortnitepal",
     "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug"
+    "changeOrigin": true
   },
   "/upload/*": {
     "target": "http://localhost:8080",
     "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug"
+    "changeOrigin": true
   }
 }

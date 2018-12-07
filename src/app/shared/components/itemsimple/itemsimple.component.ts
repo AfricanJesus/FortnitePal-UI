@@ -3,6 +3,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ItemService} from "../../services/item.service";
 import ItemsObject = ItemListModule.ItemsObject;
 import Item = ItemListModule.Item;
+import {ItemsComponent} from "../../../items/items.component";
 
 
 @Component({
@@ -13,6 +14,7 @@ export class ItemsimpleComponent implements OnInit {
 
   items: Item[];
   @Input() url: string;
+  @Input() parent?: ItemsComponent;
 
   constructor(private itemService: ItemService) {
   }
@@ -27,8 +29,16 @@ export class ItemsimpleComponent implements OnInit {
         this.items = data._embedded.items
       },
       err => console.error(err),
-      () => console.log('Data Loaded')
+      () => {
+        console.log('Data Loaded'), this.setSize();
+      }
     );
+  }
+
+  setSize(): void {
+    if (this.parent) {
+      this.parent.numOfItems = this.items.length;
+    }
   }
 
   getBackground(type) {
