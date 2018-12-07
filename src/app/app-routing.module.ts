@@ -6,6 +6,7 @@ import {HomeComponent} from "./home/home.component";
 import {DetailComponent} from "./detail/detail.component";
 import {AuthGuard} from "./shared/services/auth.guard";
 import {ItemsComponent} from "./items/items.component";
+import {ItemseasonComponent} from "./shared/components/itemseason/itemseason.component";
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
       {path: 'home', component: HomeComponent},
       {path: 'details/:id', component: DetailComponent},
       {path: 'items/:itemType', component: ItemsComponent},
+      {path: 'seasons/:itemType', component: ItemseasonComponent},
       {path: '', redirectTo: '/home', pathMatch: 'full'},
     ]
   },

@@ -6,6 +6,7 @@ import {RouterModule} from "@angular/router";
 import {ItemsimpleComponent} from "./components/itemsimple/itemsimple.component";
 import {ChallengesetComponent} from "./components/challengeset/challengeset.component";
 import {StylesetComponent} from "./components/styleset/styleset.component";
+import {ItemseasonComponent} from "./components/itemseason/itemseason.component";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {StylesetComponent} from "./components/styleset/styleset.component";
   declarations: [
     ItemsimpleComponent,
     ChallengesetComponent,
-    StylesetComponent
+    StylesetComponent,
+    ItemseasonComponent
   ], exports: [
     ItemsimpleComponent,
     ChallengesetComponent,
