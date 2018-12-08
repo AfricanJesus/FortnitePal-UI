@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://fortnitepaltomcat.us-east-1.elasticbeanstalk.com/",
+    "target": "http://fortnitepal.us-east-1.elasticbeanstalk.com",
     "secure": false,
     "changeOrigin": true
   },
