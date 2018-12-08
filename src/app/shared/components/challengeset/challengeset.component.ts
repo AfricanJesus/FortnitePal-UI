@@ -3,6 +3,7 @@ import {ChallengesetService} from "../../services/challengeset.service";
 
 import ChallengeSetObject = ChallengeSetModule.ChallengeSetObject;
 import Challenge = ChallengeSetModule.Challenge;
+import {environment} from "../../../../environments/environment.prod";
 
 
 @Component({
@@ -14,6 +15,7 @@ export class ChallengesetComponent implements OnInit {
   challengeSet: ChallengeSetObject;
   @Input() url: string;
   @Input() rarity: string;
+  baseImageUrl = environment.baseImageUrl;
 
 
   constructor(private challengeSetService: ChallengesetService) { }
@@ -30,18 +32,18 @@ export class ChallengesetComponent implements OnInit {
     );
   }
 
-  getBackground(type){
-    switch (type){
+  getBackground(type) {
+    switch (type) {
       case 'LEGENDARY':
-        return '/images/background/legendary.png';
+        return this.baseImageUrl + '/images/background/legendary.png';
       case 'EPIC':
-        return '/images/background/epic.png';
+        return this.baseImageUrl + '/images/background/epic.png';
       case 'RARE':
-        return '/images/background/rare.png';
+        return this.baseImageUrl + '/images/background/rare.png';
       case 'COMMON':
-        return '/images/background/common.png';
+        return this.baseImageUrl + '/images/background/common.png';
       case 'UNCOMMON':
-        return '/images/background/uncommon.png';
+        return this.baseImageUrl + '/images/background/uncommon.png';
     }
   }
 

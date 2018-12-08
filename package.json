@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "node server.js ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --extract-css",
     "prod": "ng build --prod --output-hashing=media",
     "prod:hashed": "ng build --prod",
@@ -23,6 +23,7 @@
     "@angular/http": "~6.0.2",
     "@angular/platform-browser": "~6.0.2",
     "@angular/platform-browser-dynamic": "~6.0.2",
+    "@angular/pwa": "^0.11.2",
     "@angular/router": "~6.0.2",
     "@ng-bootstrap/ng-bootstrap": "~2.1.0",
     "@progress/kendo-angular-treeview": "^2.5.0",

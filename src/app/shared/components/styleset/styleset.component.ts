@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
 import {StylesetService} from "../../services/styleset.service";
 import StyleSetObject = StyleSetModule.StyleSetObject;
+import {environment} from "../../../../environments/environment.prod";
 
 
 
@@ -14,6 +15,7 @@ export class StylesetComponent implements OnInit {
 
   styleSet: StyleSetObject;
   @Input() url: string;
+  baseImageUrl = environment.baseImageUrl;
 
 
   constructor(private styleSetService: StylesetService) { }
@@ -30,18 +32,18 @@ export class StylesetComponent implements OnInit {
     );
   }
 
-  getBackground(type){
-    switch (type){
+  getBackground(type) {
+    switch (type) {
       case 'LEGENDARY':
-        return '/images/background/legendary.png';
+        return this.baseImageUrl + '/images/background/legendary.png';
       case 'EPIC':
-        return '/images/background/epic.png';
+        return this.baseImageUrl + '/images/background/epic.png';
       case 'RARE':
-        return '/images/background/rare.png';
+        return this.baseImageUrl + '/images/background/rare.png';
       case 'COMMON':
-        return '/images/background/common.png';
+        return this.baseImageUrl + '/images/background/common.png';
       case 'UNCOMMON':
-        return '/images/background/uncommon.png';
+        return this.baseImageUrl + '/images/background/uncommon.png';
     }
   }
 

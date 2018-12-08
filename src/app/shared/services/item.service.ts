@@ -6,6 +6,7 @@ import {map} from "rxjs/operators";
 // *******************************************************************************//
 import ItemObject = ItemSingleModule.ItemObject;
 import ItemsObject = ItemListModule.ItemsObject;
+import {environment} from "../../../environments/environment.prod";
 
 
 const httpOptions = {
@@ -17,22 +18,18 @@ const httpOptions = {
 })
 export class ItemService {
 
-  baseUrl: string = '/api/items/';
+  // baseUrl: string = '/api/items/';
+  baseUrl = environment.baseAPIUrl;
 
   constructor(private  http: HttpClient) {
   }
 
   getItem(id: number): Observable<ItemObject> {
-    let token = localStorage.getItem('access_token');
-    return this.http.get<ItemObject>(this.baseUrl + id);
-    // return this.http.get<RootObject>(this.baseUrl + id,
-    //   {headers: new HttpHeaders().set('Authorization', 'Bearer' + token)}
-    //   )
-    //   .do(data => console.log('ITEM: ' + JSON.stringify(data, null, 2)));
+    return this.http.get<ItemObject>(this.baseUrl + "/api/items/" + id);
   }
 
   getItems(url: string): Observable<ItemsObject> {
-    return this.http.get<ItemsObject>(url);
+    return this.http.get<ItemsObject>(this.baseUrl + url);
   }
 
 
