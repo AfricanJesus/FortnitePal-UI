@@ -16,6 +16,7 @@ export class StylesetComponent implements OnInit {
   styleSet: StyleSetObject;
   @Input() url: string;
   baseImageUrl = environment.baseImageUrl;
+  baseAPIUrl = environment.baseAPIUrl;
 
 
   constructor(private styleSetService: StylesetService) { }
@@ -25,7 +26,8 @@ export class StylesetComponent implements OnInit {
   }
 
   getStyleSet(){
-    this.styleSetService.getStyle(this.url).subscribe(
+    console.log(this.baseAPIUrl + this.url);
+    this.styleSetService.getStyle(this.baseAPIUrl + this.url).subscribe(
       (data: StyleSetObject) => { this.styleSet = data},
       err => console.error(err),
       () => console.log('Style Loaded')

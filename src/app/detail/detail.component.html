@@ -41,7 +41,8 @@
                   {{item.obtained.includedInName}}
                 </li>
                 <li *ngIf="item.obtained.vbuckPrice != 0">
-                  <img src="/images/icons/vbucks.png" width="3%"> {{item.obtained.vbuckPrice}}
+                  <img src="http://fortnitepal.s3.amazonaws.com/images/icons/vbucks.png" width="3%">
+                  {{item.obtained.vbuckPrice}}
                 </li>
                 <li *ngIf="item.obtained.price != 0">Price: {{item.obtained.price | currency}}</li>
                 <li *ngIf="item.obtained.challenge != 'null'">Complete Challenge(s) From:

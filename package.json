@@ -88,6 +88,7 @@
     "spinkit": "~1.2.5",
     "sweetalert2": "~7.22.2",
     "text-mask-addons": "~3.7.2",
+    "title-case": "^2.1.1",
     "toastr": "~2.1.4",
     "web-animations-js": "~2.3.1",
     "zone.js": "~0.8.26"

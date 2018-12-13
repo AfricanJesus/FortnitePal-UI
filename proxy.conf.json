@@ -5,7 +5,7 @@
     "changeOrigin": true
   },
   "/images/*": {
-    "target": "https://s3.us-east-2.amazonaws.com/fortnitepal",
+    "target": "http://fortnitepal.s3.amazonaws.com",
     "secure": false,
     "changeOrigin": true
   },

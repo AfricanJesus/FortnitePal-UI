@@ -5,6 +5,8 @@ import {ItemService} from "../../services/item.service";
 import ItemsObject = ItemListModule.ItemsObject;
 import Item = ItemListModule.Item;
 import {environment} from "../../../../environments/environment.prod";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {AppService} from "../../../app.service";
 
 
 @Component({
@@ -17,15 +19,28 @@ export class ItemseasonComponent implements OnInit {
   @Input() url: string;
   baseImageUrl = environment.baseImageUrl;
 
-  constructor(private itemService: ItemService) {
+  constructor(private appService: AppService, private itemService: ItemService, private route: ActivatedRoute, private router: Router) {
+    this.appService.pageTitle = 'Season ' + this.route.snapshot.params.seasonNumber + ' Items';
+    // override the route reuse strategy
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        // trick the Router into believing it's last link wasn't previously loaded
+        this.router.navigated = false;
+        // if you need to scroll back to top, here is the right place
+        window.scrollTo(0, 0);
+      }
+    });
   }
 
   ngOnInit() {
-    this.getItems();
+    this.getSeasonItems(this.route.snapshot.params.seasonNumber);
   }
 
-  getItems(){
-    this.itemService.getItems(this.url).subscribe(
+  getSeasonItems(seasonNumber: number) {
+    this.itemService.getItems('/api/items/search/findByObtained_Season?season=' + seasonNumber + '&sort=obtained_tier&size=500').subscribe(
       (data: ItemsObject) => {
         this.items = data._embedded.items
       },

@@ -5,6 +5,7 @@ import ItemsObject = ItemListModule.ItemsObject;
 import Item = ItemListModule.Item;
 import {ItemsComponent} from "../../../items/items.component";
 import {environment} from "../../../../environments/environment.prod";
+import {NavigationEnd, Router} from "@angular/router";
 
 
 @Component({
@@ -18,7 +19,20 @@ export class ItemsimpleComponent implements OnInit {
   @Input() parent?: ItemsComponent;
   baseImageUrl = environment.baseImageUrl;
 
-  constructor(private itemService: ItemService) {
+  constructor(private itemService: ItemService, private router: Router) {
+    // override the route reuse strategy
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        // trick the Router into believing it's last link wasn't previously loaded
+        this.router.navigated = false;
+        // if you need to scroll back to top, here is the right place
+        window.scrollTo(0, 0);
+      }
+    });
   }
 
   ngOnInit() {
@@ -32,7 +46,7 @@ export class ItemsimpleComponent implements OnInit {
       },
       err => console.error(err),
       () => {
-        console.log('Data Loaded'), this.setSize();
+        console.log('Data Loaded')
       }
     );
   }

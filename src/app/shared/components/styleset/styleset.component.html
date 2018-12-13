@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-sm-2" *ngFor="let stage of styleSet.stages">
           <img class="card-img p-1" src="{{stage.styleItemImage}}"
-               [ngStyle]="{'background-image': 'url(/images/background/basic.png)', 'background-size':'cover'}">
+               style="background-image: url('http://fortnitepal.s3.amazonaws.com/images/background/basic.png'); background-size: cover">
           <div style="text-align: center">
             <span class="card-title m-1 text-large">{{stage.styleName}}</span>
           </div>

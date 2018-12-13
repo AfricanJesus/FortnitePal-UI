@@ -15,7 +15,6 @@ import {environment} from "../../environments/environment.prod";
 export class DetailComponent implements OnInit {
 
   item: ItemObject;
-  // url: string = '/api/items/';
   id: number;
   baseImageUrl = environment.baseImageUrl;
 

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, NavigationEnd} from "@angular/router";
+import {AppService} from "../app.service";
+
 
 @Component({
   selector: 'app-item-simple-list',
@@ -11,7 +13,9 @@ export class ItemsComponent implements OnInit {
   flag: string;
   numOfItems: number;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private appService: AppService, private route: ActivatedRoute, private router: Router) {
+    this.appService.pageTitle = this.route.snapshot.params.itemType;
+
     // override the route reuse strategy
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -37,13 +41,10 @@ export class ItemsComponent implements OnInit {
   }
 
   setURL(itemType: string): void {
-    if (itemType.includes('season')) {
-      this.url = '/api/items/search/findByObtained_Season?season=' + itemType.charAt(itemType.length - 1) + '&sort=obtained_tier&size=500';
-    } else if (itemType == 'unreleased') {
+    if (itemType == 'unreleased') {
       this.url = '/api/items/search/findByStatus?status=' + itemType.toUpperCase() + '&sort=rarityType&projection=itemModelSimple&sort=name&size=500';
     } else {
       this.url = '/api/items/search/findByItemType?item=' + itemType.toUpperCase() + '&sort=rarityType&projection=itemModelSimple&size=500&sort=name';
     }
   }
-
 }
