@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/Rx";
-import ChallengeSetObject = ChallengeSetModule.ChallengeSetObject;
 import {environment} from "../../../environments/environment.prod";
+import ChallengeSetObject = ChallengeSetModule.ChallengeSetObject;
 
 
 

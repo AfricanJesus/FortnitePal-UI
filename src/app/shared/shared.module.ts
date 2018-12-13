@@ -13,7 +13,7 @@ import {ItemseasonComponent} from "./components/itemseason/itemseason.component"
   imports: [
     CommonModule,
     NgbModule,
-    RouterModule
+    RouterModule,
   ],
   declarations: [
     ItemsimpleComponent,
