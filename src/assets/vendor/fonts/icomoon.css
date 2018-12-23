@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('icomoon/icomoon.eot?4z2mhm');
+  src: url('icomoon/icomoon.eot?4z2mhm#iefix') format('embedded-opentype'),
+  url('icomoon/icomoon.ttf?4z2mhm') format('truetype'),
+  url('icomoon/icomoon.woff?4z2mhm') format('woff'),
+  url('icomoon/icomoon.svg?4z2mhm#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icomoon-"], [class*=" icomoon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icomoon-season:before {
+  content: "\e90c";
+  font-size: 1.3em;
+}
+
+.icomoon-pickaxe:before {
+  content: "\e900";
+  font-size: 1.5em;
+}
+
+.icomoon-backbling:before {
+  content: "\e901";
+  font-size: 1.5em;
+}
+
+.icomoon-contrail:before {
+  content: "\e902";
+  font-size: 1.5em;
+}
+
+.icomoon-dance:before {
+  content: "\e903";
+  font-size: 1.75em;
+}
+
+.icomoon-emoticon:before {
+  content: "\e904";
+  font-size: 1.5em;
+}
+
+.icomoon-glider:before {
+  content: "\e905";
+  font-size: 1.5em;
+}
+
+.icomoon-loadingscreen:before {
+  content: "\e906";
+  font-size: 1.5em;
+}
+
+.icomoon-music:before {
+  content: "\e907";
+  font-size: 1.5em;
+}
+
+.icomoon-outfit:before {
+  content: "\e908";
+  font-size: 1.5em;
+}
+
+.icomoon-spray:before {
+  content: "\e909";
+  font-size: 1.5em;
+}
+
+.icomoon-toy:before {
+  content: "\e90a";
+  font-size: 1.5em;
+}
+
+.icomoon-wrap:before {
+  content: "\e90b";
+  font-size: 1.5em;
+}

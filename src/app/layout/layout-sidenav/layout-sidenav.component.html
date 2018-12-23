@@ -5,7 +5,8 @@
     <div class="app-brand py-3">
       <i class="app-brand-logo fas fa-coins" style="color: white"></i>
       <a routerLink="/" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Fortnite Pal</a>
-      <a href="javascript:void(0)" class="layout-sidenav-toggle sidenav-link text-large ml-auto" (click)="toggleSidenav()">
+      <a href="javascript:void(0)" class="layout-sidenav-toggle sidenav-link text-large ml-auto"
+         (click)="toggleSidenav()">
         <i class="ion ion-md-menu align-middle"></i>
       </a>
     </div>
@@ -13,76 +14,87 @@
     <!-- / Brand -->
     <!-- Inner -->
     <div class="sidenav-inner" [ngClass]="{ 'py-1': orientation !== 'horizontal' }">
-      <sidenav-router-link icon="ion ion-ios-contact" route="/home" [active]="isActive('/home')">Home</sidenav-router-link>
+      <sidenav-router-link icon="fas fa-home" route="/home" [active]="isActive('/home')">Home</sidenav-router-link>
 
-      <sidenav-menu icon="ion ion-md-desktop" text="Skins"[active]="isMenuActive('/skins')" [open]="isMenuOpen('/skins')">
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/outfit" [active]="isActive('/skins/outfit')">
+      <sidenav-menu icon="fas fa-tshirt" text="Skins" [active]="isMenuActive('/skins')" [open]="isMenuOpen('/skins')">
+        <sidenav-router-link icon="icomoon-outfit" route="/items/outfit" [active]="isActive('/skins/outfit')">
           Outfits
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/backbling" [active]="isActive('/skins/backbling')">
+        <sidenav-router-link icon="icomoon-backbling" route="/items/backbling" [active]="isActive('/skins/backbling')">
           Back Blings
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/pet" [active]="isActive('/skins/pet')">Pets
+        <sidenav-router-link icon="" route="/items/pet" [active]="isActive('/skins/pet')"><i class="fas fa-paw mr-1"
+                                                                                             style="font-size: 1.5em"></i>
+          Pets
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/harvestingtool"
+        <sidenav-router-link icon="icomoon-pickaxe" route="/items/harvestingtool"
                              [active]="isActive('/skins/harvestingtool')">Harvesting Tools
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/glider" [active]="isActive('/skins/glider')">
+        <sidenav-router-link icon="icomoon-glider" route="/items/glider" [active]="isActive('/skins/glider')">
           Gliders
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/contrail" [active]="isActive('/skins/contrail')">
+        <sidenav-router-link icon="icomoon-contrail" route="/items/contrail" [active]="isActive('/skins/contrail')">
           Contrails
-        </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/loadingscreen"
-                             [active]="isActive('/skins/loadingscreen')">Loading Screens
-        </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/wrap"
-                             [active]="isActive('/skins/loadingscreen')">Wraps
         </sidenav-router-link>
       </sidenav-menu>
 
-      <sidenav-menu icon="ion ion-md-desktop" text="Emotes"[active]="isMenuActive('/emote')" [open]="isMenuOpen('/emote')">
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/dance" [active]="isActive('/emote/dance')">Dances
+      <sidenav-menu icon="fas fa-smile" text="Emotes" [active]="isMenuActive('/emote')"
+                    [open]="isMenuOpen('/emote')">
+        <sidenav-router-link icon="icomoon-dance" route="/items/dance" [active]="isActive('/emote/dance')">Dances
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/spray" [active]="isActive('/emote/spray')">Sprays
+        <sidenav-router-link icon="icomoon-spray" route="/items/spray" [active]="isActive('/emote/spray')">Sprays
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/toy" [active]="isActive('/emote/toy')">Toys
+        <sidenav-router-link icon="icomoon-toy" route="/items/toy" [active]="isActive('/emote/toy')">Toys
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/items/emoticon" [active]="isActive('/emote/emoticon')">
+        <sidenav-router-link icon="icomoon-emoticon" route="/items/emoticon" [active]="isActive('/emote/emoticon')">
           Emoticons
         </sidenav-router-link>
       </sidenav-menu>
 
-      <sidenav-menu icon="ion ion-md-desktop" text="Seasons"[active]="isMenuActive('/seasons')" [open]="isMenuOpen('/seasons')">
-        <sidenav-router-link icon="ion ion-md-desktop" route="/seasons/1" [active]="isActive('/seasons/1')">
+      <sidenav-menu icon="ion ion-ios-albums" text="Other" [active]="isMenuActive('/other')"
+                    [open]="isMenuOpen('/other')">
+        <sidenav-router-link icon="icomoon-wrap" route="/items/wrap" [active]="isActive('/other/wrap')">Wraps
+        </sidenav-router-link>
+        <sidenav-router-link icon="icomoon-music" route="/items/music" [active]="isActive('/other/music')">Music
+        </sidenav-router-link>
+        <sidenav-router-link icon="icomoon-loadingscreen" route="/items/loadingscreen"
+                             [active]="isActive('/other/loadingscreen')">Loading Screen
+        </sidenav-router-link>
+      </sidenav-menu>
+
+      <sidenav-menu icon="icomoon-season" text="Seasons" [active]="isMenuActive('/seasons')"
+                    [open]="isMenuOpen('/seasons')">
+        <sidenav-router-link route="/seasons/1" [active]="isActive('/seasons/1')">
           Season 1
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/seasons/2" [active]="isActive('/seasons/2')">
+        <sidenav-router-link route="/seasons/2" [active]="isActive('/seasons/2')">
           Season 2
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/seasons/3" [active]="isActive('/seasons/3')">
+        <sidenav-router-link route="/seasons/3" [active]="isActive('/seasons/3')">
           Season 3
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/seasons/4" [active]="isActive('/seasons/4')">
+        <sidenav-router-link route="/seasons/4" [active]="isActive('/seasons/4')">
           Season 4
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/seasons/5" [active]="isActive('/seasons/5')">
+        <sidenav-router-link route="/seasons/5" [active]="isActive('/seasons/5')">
           Season 5
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/seasons/6" [active]="isActive('/seasons/')">
+        <sidenav-router-link route="/seasons/6" [active]="isActive('/seasons/')">
           Season 6
         </sidenav-router-link>
-        <sidenav-router-link icon="ion ion-md-desktop" route="/seasons/7" [active]="isActive('/seasons/7')">
+        <sidenav-router-link route="/seasons/7" [active]="isActive('/seasons/7')">
           Season 7
         </sidenav-router-link>
       </sidenav-menu>
 
-      <sidenav-router-link icon="ion ion-md-desktop" route="/items/unreleased" [active]="isActive('/unreleased')">
+      <sidenav-router-link icon="fas fa-ellipsis-h" route="/items/unreleased" [active]="isActive('/unreleased')">
         Unreleased Items
       </sidenav-router-link>
 
-      <sidenav-menu icon="ion ion-md-desktop" text="Admin"[active]="isMenuActive('/admin')" [open]="isMenuOpen('/admin')">
-        <sidenav-router-link icon="ion ion-md-desktop" route="/admin/items" [active]="isActive('/admin/items')">Items</sidenav-router-link>
+      <sidenav-menu icon="ion ion-md-desktop" text="Admin" [active]="isMenuActive('/admin')"
+                    [open]="isMenuOpen('/admin')">
+        <sidenav-router-link icon="ion ion-md-desktop" route="/admin/items" [active]="isActive('/admin/items')">Items
+        </sidenav-router-link>
         <sidenav-router-link icon="ion ion-md-desktop" route="/admin/manage" [active]="isActive('/admin/manage')">Manage
           Images
         </sidenav-router-link>
