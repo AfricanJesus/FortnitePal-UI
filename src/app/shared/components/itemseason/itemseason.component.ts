@@ -4,7 +4,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ItemService} from "../../services/item.service";
 import ItemsObject = ItemListModule.ItemsObject;
 import Item = ItemListModule.Item;
-import {environment} from "../../../../environments/environment.prod";
+import {environment} from "../../../../environments/environment";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {AppService} from "../../../app.service";
 

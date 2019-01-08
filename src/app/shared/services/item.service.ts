@@ -6,7 +6,7 @@ import {map} from "rxjs/operators";
 // *******************************************************************************//
 import ItemObject = ItemSingleModule.ItemObject;
 import ItemsObject = ItemListModule.ItemsObject;
-import {environment} from "../../../environments/environment.prod";
+import {environment} from "../../../environments/environment";
 
 
 const httpOptions = {

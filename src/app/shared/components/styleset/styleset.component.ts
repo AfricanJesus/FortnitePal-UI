@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
 import {StylesetService} from "../../services/styleset.service";
 import StyleSetObject = StyleSetModule.StyleSetObject;
-import {environment} from "../../../../environments/environment.prod";
+import {environment} from "../../../../environments/environment";
 
 
 

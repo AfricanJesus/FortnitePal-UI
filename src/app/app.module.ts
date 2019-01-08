@@ -32,9 +32,9 @@ import {StylesetService} from "./shared/services/styleset.service";
 import {AuthService} from "./shared/services/auth.service";
 import {AuthGuard} from "./shared/services/auth.guard";
 import {FileService} from "./shared/services/file.service";
-import {TreeViewModule} from '@progress/kendo-angular-treeview';
 import {ItemsComponent} from './items/items.component';
 import {RarityColorPipe} from "./shared/RarityColorPipe";
+import {SweetAlert2Module} from "@toverux/ngx-sweetalert2";
 
 // *******************************************************************************
 //
@@ -62,7 +62,11 @@ import {RarityColorPipe} from "./shared/RarityColorPipe";
     LayoutModule,
     HttpClientModule,
     SharedModule,
-    TreeViewModule
+    SweetAlert2Module.forRoot({
+      buttonsStyling: false,
+      confirmButtonClass: 'btn btn-lg btn-primary',
+      cancelButtonClass: 'btn btn-lg btn-default'
+    }),
   ],
   providers: [
     Title,

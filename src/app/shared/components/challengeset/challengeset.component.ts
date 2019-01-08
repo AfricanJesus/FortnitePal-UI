@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ChallengesetService} from "../../services/challengeset.service";
 
 import ChallengeSetObject = ChallengeSetModule.ChallengeSetObject;
-import {environment} from "../../../../environments/environment.prod";
+import {environment} from "../../../../environments/environment";
 
 
 @Component({

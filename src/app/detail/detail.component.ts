@@ -5,7 +5,7 @@ import {ItemService} from "../shared/services/item.service";
 
 // *******************************************************************************//
 import ItemObject = ItemSingleModule.ItemObject;
-import {environment} from "../../environments/environment.prod";
+import {environment} from "../../environments/environment";
 
 
 @Component({
