@@ -3,62 +3,40 @@
     Upload Images
   </h6>
   <div class="card-body">
+    <form [formGroup]="uploadForm" (ngSubmit)="onUpload()">
 
-    <form #uploadForm="ngForm" (ngSubmit)="onUpload()">
-      <div class="form-group">
-        <label for="folderName">Folder Name</label>
-        <select class="form-control" id="folderName" name="folderName" required [(ngModel)]="uploadRequest.folderName">
-          <option *ngFor="let name of folderNames" [value]="name">{{name}}</option>
+      <div class="form-group col-4">
+        <label class="form-label">Select folder:</label>
+        <select formControlName="folderName">
+          <option *ngFor="let selectedFolder of folderNames" [value]="selectedFolder">{{selectedFolder}}</option>
         </select>
       </div>
-      <div class="form-group">
-        <label class="btn btn-secondary">
-          Select file
-          <input type="file" class="sr-only" ng2FileSelect [uploader]="uploader" required name="file" accept=".png"
-                 [(ngModel)]="uploadRequest.file" multiple></label>
-        <ul class="list-group mt-4" [class.d-none]="!uploader?.queue?.length">
 
-          <!-- Files -->
-          <li class="list-group-item" *ngFor="let item of uploader.queue">
-            <div class="media">
-              <div class="media-body">
-                <div>
-                  <span *ngIf="item.isSuccess"><i class="ion ion-md-checkmark text-success text-big mr-2"></i></span>
-                  <span *ngIf="item.isCancel"><i class="ion ion-md-close text-warning text-big mr-2"></i></span>
-                  <span *ngIf="item.isError"><i class="ion ion-md-alert text-danger text-big mr-2"></i></span>
-                  <strong>{{ item?.file?.name }}</strong>
-                  <span>
-                - <em class="text-muted">{{ item.progress + '%' }}</em>
-              </span>
-                </div>
-                <div>
-                  <small class="text-muted" nowrap>
-                    {{ item?.file?.size/1024/1024 | number:'.2' }} MB
-                  </small>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-
+      <div class="form-group col-4">
+        <input style="display: none" type="file" formControlName="uploadFile" (change)="onFileSelected($event)"
+               #fileInput>
+        <button type="button" class="btn btn-secondary" (click)="fileInput.click()"><span
+          class="far fa-file-image"></span>&nbsp;&nbsp;Select File
+        </button>
+        <label class="form-label" *ngIf="selectedFile != null">{{selectedFileName}}</label>
       </div>
-      <div class="media mt-4" [class.d-none]="!uploader?.queue?.length">
-        <div class="mr-3">
-          <button type="submit" class="progress-resume-link btn icon-btn btn-primary"
-                  [disabled]="!uploader.getNotUploadedItems().length && !uploadForm.form.valid" ngbTooltip="Upload all">
-            <i class="ion ion-md-play"></i></button>
-          <button type="button" class="progress-pause-link btn icon-btn btn-warning" (click)="uploader.cancelAll()"
-                  [disabled]="!uploader.isUploading" ngbTooltip="Cancel all"><i class="ion ion-md-close"></i></button>
-          <button type="button" class="progress-cancel-link btn icon-btn btn-danger"
-                  (click)="uploader.clearQueue() && resetForm()" [disabled]="!uploader.queue.length"
-                  ngbTooltip="Remove all"><i class="ion ion-md-trash"></i></button>
-        </div>
-        <div class="media-body align-self-center">
-          <div class="progress-container progress">
-            <div class="progress-bar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
-          </div>
-        </div>
+      <div class="form-group col-4">
+        <img [(src)]="url"
+             style="width: 50%; height: 50%; background-image: url('http://fortnitepal.s3.amazonaws.com/images/background/basic.png'); background-size: cover">
+      </div>
+
+      <div class="form-group col-4">
+        <button type="submit" class="btn btn-primary" [disabled]="!uploadForm.valid"><span class="fas fa-upload"></span>&nbsp;&nbsp;Upload
+          Image
+        </button>
+        <button type="reset" class="btn btn-danger" (click)="resetForm()"><span class="fas fa-trash"></span>&nbsp;&nbsp;Reset
+          Form
+        </button>
+
+        <button hidden="true" [swal]="['Success!', 'Upload Complete', 'success']" class="btn btn-success mb-1"
+                id="successModal"></button>
       </div>
     </form>
+
   </div>
 </div>
