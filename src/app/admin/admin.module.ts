@@ -5,9 +5,8 @@ import {FormsModule, FormsModule as NgFormsModule, ReactiveFormsModule} from '@a
 
 import {AdminRoutingModule} from "./admin-routing.module";
 
-import {FileUploadModule} from "ng2-file-upload";
+import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 import {SelectModule} from "ng-select";
-import {TreeViewModule} from "@progress/kendo-angular-treeview";
 
 import {SharedModule} from "../shared/shared.module";
 import {ItemListComponent} from "./item/list/item-list.component";
@@ -16,11 +15,6 @@ import {ItemViewComponent} from "./item/view/item-view.component";
 import {ItemEditGuard} from "./item/item-guard.service";
 import {UploadImageComponent} from './image/upload/upload-image.component';
 import {ManageImageComponent} from './image/manage/manage-image.component';
-
-
-
-
-
 
 @NgModule({
   imports: [
@@ -31,9 +25,8 @@ import {ManageImageComponent} from './image/manage/manage-image.component';
     NgFormsModule,
     FormsModule,
     ReactiveFormsModule,
-    FileUploadModule,
     SelectModule,
-    TreeViewModule
+    SweetAlert2Module
   ],
   declarations: [
     ItemListComponent,
@@ -43,7 +36,7 @@ import {ManageImageComponent} from './image/manage/manage-image.component';
     ManageImageComponent
   ],
   providers: [
-    ItemEditGuard
+    ItemEditGuard,
   ]
 })
 export class AdminModule { }

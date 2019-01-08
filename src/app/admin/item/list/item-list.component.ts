@@ -4,7 +4,7 @@ import {AppService} from '../../../app.service';
 
 import ItemsObject = ItemListModule.ItemsObject;
 import {ItemService} from "../../../shared/services/item.service";
-import {environment} from "../../../../environments/environment.prod";
+import {environment} from "../../../../environments/environment";
 
 
 
