@@ -25,7 +25,7 @@ export class ItemService {
   }
 
   getItem(id: number): Observable<ItemObject> {
-    return this.http.get<ItemObject>(this.baseUrl + "/api/items/" + id);
+    return this.http.get<ItemObject>(this.baseUrl + "/api/items/search/findItemById?id=" + id);
   }
 
   getItems(url: string): Observable<ItemsObject> {

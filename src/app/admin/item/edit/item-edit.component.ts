@@ -5,8 +5,11 @@ import {ItemService} from "../../../shared/services/item.service";
 import {Observable} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 
-
 import ItemObject = ItemSingleModule.ItemObject;
+import {StylesetService} from "../../../shared/services/styleset.service";
+import StyleSetsObject = StyleSetsModule.StyleSetsObject;
+import StyleSetObject = StyleSetModule.StyleSetObject;
+import StyleSet = StyleSetsModule.StyleSet;
 
 
 @Component({
@@ -18,8 +21,9 @@ export class ItemEditComponent implements OnInit {
   itemForm: FormGroup;
   item: ItemObject;
   id: number;
+  styleSets: StyleSet[];
 
-  constructor(private appService: AppService, private itemSingleService: ItemService, private fb: FormBuilder, private route: ActivatedRoute) {
+  constructor(private appService: AppService, private itemSingleService: ItemService, private styleSetService: StylesetService, private fb: FormBuilder, private route: ActivatedRoute) {
     this.appService.pageTitle = 'Edit';
   }
 
@@ -59,7 +63,6 @@ export class ItemEditComponent implements OnInit {
       itemType: ['null', Validators.required],
       status: ['null', Validators.required],
     });
-    {
       this.itemSingleService.getItem(this.route.snapshot.params.id).subscribe(
         (data: ItemObject) => {
           this.itemRetrieved(data)
@@ -67,7 +70,16 @@ export class ItemEditComponent implements OnInit {
         err => console.error(err),
         () => console.log('Data Loaded')
       );
-    }
+    this.styleSetService.getStyles("/api/styleSets?size=500").subscribe(
+      (data: StyleSetsObject) => {
+        this.styleSets = data._embedded.styleSets;
+      }, err => console.error(err),
+      () => {
+        for (let style of this.styleSets) {
+          console.log(style.styleSetName);
+        }
+      }
+    )
   }
 
   itemRetrieved(item: ItemObject): void {
