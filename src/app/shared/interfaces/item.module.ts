@@ -4,7 +4,7 @@ declare module ItemSingleModule {
     season: number;
     tier: number;
     promo: string;
-    includedInName: string;
+    includedInOutfit: string;
     vbuckPrice: number;
     price: number;
     challenge: string;
@@ -35,6 +35,9 @@ declare module ItemSingleModule {
     set: string;
     itemType: string;
     status: string;
+    animated: string;
+    reactive: string;
+    traversal: string;
     _links: Links;
   }
 

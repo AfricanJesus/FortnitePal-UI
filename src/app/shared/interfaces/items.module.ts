@@ -4,7 +4,7 @@ declare module ItemListModule {
     season: number;
     tier: number;
     promo: string;
-    includedInName: string;
+    includedInOutfit: string;
     vbuckPrice: number;
     price: number;
     challenge: string;
@@ -35,6 +35,8 @@ declare module ItemListModule {
     set: string;
     itemType: string;
     status: string;
+    animated: string;
+    reactive: string;
     id: string;
     _links: Links;
   }

@@ -4,7 +4,7 @@
     <!-- Brand -->
     <div class="app-brand py-3">
       <!--<i class="app-brand-logo fas fa-coins" style="color: white"></i>-->
-      <a routerLink="/" class="app-brand-text demo sidenav-text font-weight-normal ml-2">myFortnitePal</a>
+      <a routerLink="/" class="app-brand-text demo sidenav-text font-weight-normal ml-2">MyFortnitePal</a>
       <a href="javascript:void(0)" class="layout-sidenav-toggle sidenav-link text-large ml-auto"
          (click)="toggleSidenav()">
         <i class="ion ion-md-menu align-middle"></i>
@@ -91,7 +91,7 @@
         Unreleased Items
       </sidenav-router-link>
 
-      <sidenav-menu icon="ion ion-md-desktop" text="Admin" [active]="isMenuActive('/admin')"
+      <sidenav-menu *ngIf="isAuthenticated()" icon="ion ion-md-desktop" text="Admin" [active]="isMenuActive('/admin')"
                     [open]="isMenuOpen('/admin')">
         <sidenav-router-link icon="ion ion-md-desktop" route="/admin/items" [active]="isActive('/admin/items')">Items
         </sidenav-router-link>

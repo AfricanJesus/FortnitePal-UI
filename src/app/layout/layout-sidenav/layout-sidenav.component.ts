@@ -2,6 +2,7 @@ import { Component, Input, ChangeDetectionStrategy, AfterViewInit, HostBinding }
 import { Router } from '@angular/router';
 import { AppService } from '../../app.service';
 import { LayoutService } from '../layout.service';
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-layout-sidenav',
@@ -16,11 +17,12 @@ export class LayoutSidenavComponent implements AfterViewInit {
   @HostBinding('class.layout-sidenav-horizontal') private hostClassHorizontal = false;
   @HostBinding('class.flex-grow-0') private hostClassFlex = false;
 
-  constructor(private router: Router, private appService: AppService, private layoutService: LayoutService) {
+  constructor(private router: Router, private appService: AppService, private layoutService: LayoutService, private authService: AuthService) {
     // Set host classes
     this.hostClassVertical = this.orientation !== 'horizontal';
     this.hostClassHorizontal = !this.hostClassVertical;
     this.hostClassFlex = this.hostClassHorizontal;
+    this.authService = authService;
   }
 
   ngAfterViewInit() {
@@ -56,5 +58,9 @@ export class LayoutSidenavComponent implements AfterViewInit {
 
   toggleSidenav() {
     this.layoutService.toggleCollapsed();
+  }
+
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
   }
 }

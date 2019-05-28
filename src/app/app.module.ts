@@ -35,6 +35,8 @@ import {FileService} from "./shared/services/file.service";
 import {ItemsComponent} from './items/items.component';
 import {RarityColorPipe} from "./shared/RarityColorPipe";
 import {SweetAlert2Module} from "@toverux/ngx-sweetalert2";
+import {SelectModule} from "ng-select";
+import {NgSelectModule} from '@ng-select/ng-select';
 
 // *******************************************************************************
 //
@@ -49,7 +51,7 @@ import {SweetAlert2Module} from "@toverux/ngx-sweetalert2";
     DetailComponent,
     AdminComponent,
     ItemsComponent,
-    RarityColorPipe,
+    RarityColorPipe
   ],
   imports: [
     BrowserModule,
@@ -67,6 +69,8 @@ import {SweetAlert2Module} from "@toverux/ngx-sweetalert2";
       confirmButtonClass: 'btn btn-lg btn-primary',
       cancelButtonClass: 'btn btn-lg btn-default'
     }),
+    SelectModule,
+    NgSelectModule
   ],
   providers: [
     Title,

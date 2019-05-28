@@ -14,7 +14,7 @@ import {environment} from "../../../../environments/environment";
 })
 export class ItemListComponent {
 
-  url: string = '/api/items?size=5000';
+  url: string = '?size=5000';
   baseImageUrl = environment.baseImageUrl;
 
   constructor(private appService: AppService, private itemService: ItemService) {
@@ -128,15 +128,15 @@ export class ItemListComponent {
   getBackground(type) {
     switch (type) {
       case 'LEGENDARY':
-        return this.baseImageUrl + '/images/background/legendary.png';
+        return environment.legendaryBackground;
       case 'EPIC':
-        return this.baseImageUrl + '/images/background/epic.png';
+        return environment.epicBackground;
       case 'RARE':
-        return this.baseImageUrl + '/images/background/rare.png';
+        return environment.rareBackground;
       case 'COMMON':
-        return this.baseImageUrl + '/images/background/common.png';
+        return environment.commonBackground;
       case 'UNCOMMON':
-        return this.baseImageUrl + '/images/background/uncommon.png';
+        return environment.uncommonBackground;
     }
   }
 

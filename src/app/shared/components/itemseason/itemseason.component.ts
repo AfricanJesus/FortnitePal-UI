@@ -40,7 +40,7 @@ export class ItemseasonComponent implements OnInit {
   }
 
   getSeasonItems(seasonNumber: number) {
-    this.itemService.getItems('/api/items/search/findByObtained_Season?season=' + seasonNumber + '&sort=obtained_tier&size=500').subscribe(
+    this.itemService.getItems('search/findByObtained_Season?season=' + seasonNumber + '&sort=obtained_tier&size=500').subscribe(
       (data: ItemsObject) => {
         this.items = data._embedded.items
       },
@@ -52,15 +52,15 @@ export class ItemseasonComponent implements OnInit {
   getBackground(type) {
     switch (type) {
       case 'LEGENDARY':
-        return this.baseImageUrl + '/images/background/legendary.png';
+        return environment.legendaryBackground;
       case 'EPIC':
-        return this.baseImageUrl + '/images/background/epic.png';
+        return environment.epicBackground;
       case 'RARE':
-        return this.baseImageUrl + '/images/background/rare.png';
+        return environment.rareBackground;
       case 'COMMON':
-        return this.baseImageUrl + '/images/background/common.png';
+        return environment.commonBackground;
       case 'UNCOMMON':
-        return this.baseImageUrl + '/images/background/uncommon.png';
+        return environment.uncommonBackground;
     }
   }
 }

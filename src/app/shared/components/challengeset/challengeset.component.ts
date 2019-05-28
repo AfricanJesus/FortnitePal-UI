@@ -34,15 +34,15 @@ export class ChallengesetComponent implements OnInit {
   getBackground(type) {
     switch (type) {
       case 'LEGENDARY':
-        return this.baseImageUrl + '/images/background/legendary.png';
+        return environment.legendaryBackground;
       case 'EPIC':
-        return this.baseImageUrl + '/images/background/epic.png';
+        return environment.epicBackground;
       case 'RARE':
-        return this.baseImageUrl + '/images/background/rare.png';
+        return environment.rareBackground;
       case 'COMMON':
-        return this.baseImageUrl + '/images/background/common.png';
+        return environment.commonBackground;
       case 'UNCOMMON':
-        return this.baseImageUrl + '/images/background/uncommon.png';
+        return environment.uncommonBackground;
     }
   }
 

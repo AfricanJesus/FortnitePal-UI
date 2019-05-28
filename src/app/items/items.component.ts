@@ -42,9 +42,9 @@ export class ItemsComponent implements OnInit {
 
   setURL(itemType: string): void {
     if (itemType == 'unreleased') {
-      this.url = '/api/items/search/findByStatus?status=' + itemType.toUpperCase() + '&sort=rarityType&projection=itemModelSimple&sort=name&size=500';
+      this.url = 'search/findByStatus?status=' + itemType.toUpperCase() + '&sort=rarityType&projection=itemModelSimple&sort=name&size=500';
     } else {
-      this.url = '/api/items/search/findByItemType?item=' + itemType.toUpperCase() + '&sort=rarityType&projection=itemModelSimple&size=500&sort=name';
+      this.url = 'search/findByItemType?item=' + itemType.toUpperCase() + '&sort=rarityType&projection=itemModelSimple&size=500&sort=name';
     }
   }
 }

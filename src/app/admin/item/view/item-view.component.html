@@ -31,12 +31,27 @@
         <div class="form-control">{{item.status}}</div>
       </div>
     </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label class="form-label">Animated</label>
+        <div class="form-control">{{item.animated}}</div>
+      </div>
+      <div class="form-group col-md-4">
+        <label class="form-label">Traversal</label>
+        <div class="form-control">{{item.traversal}}</div>
+      </div>
+      <div class="form-group col-md-4">
+        <label class="form-label">Reactive</label>
+        <div class="form-control">{{item.reactive}}</div>
+      </div>
+    </div>
     <div class="form-group">
       <label class="form-label">Images</label>
       <div class="form-control">{{item.images}}</div>
     </div>
-    <div class="form-group">
-      <label class="form-label">Obtained</label>
+
+    <label class="form-label">Obtained</label>
+    <div class="card-body">
       <div class="form-row">
         <div class="form-group col-md-3">
           <label class="form-label">Season</label>
@@ -60,11 +75,13 @@
         <div class="form-control">{{item.obtained.promo}}</div>
       </div>
       <div class="form-group">
-        <label class="form-label">IncludedInName</label>
-        <div class="form-control">{{item.obtained.includedInName}}</div>
+        <label class="form-label">IncludedInOutfit</label>
+        <div class="form-control">{{item.obtained.includedInOutfit}}</div>
       </div>
-
-      <div class="form-control">{{item.obtained.challenge}}</div>
+      <div>
+        <label class="form-label">Challenge Set</label>
+        <div class="form-control">{{item.obtained.challenge}}</div>
+      </div>
     </div>
     <div class="form-group">
       <label class="form-label">Style Set</label>

@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: Layout2Component,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: './admin/admin.module#AdminModule'
   },
   {path: '**', redirectTo: 'home', pathMatch: 'full'},

@@ -10,7 +10,10 @@ import {environment} from "../../../environments/environment";
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+  })
 };
 
 @Injectable({
@@ -18,14 +21,13 @@ const httpOptions = {
 })
 export class ItemService {
 
-  // baseUrl: string = '/api/items/';
-  baseUrl = environment.baseAPIUrl;
+  baseUrl = environment.baseAPIUrl + '/api/items/';
 
   constructor(private  http: HttpClient) {
   }
 
   getItem(id: number): Observable<ItemObject> {
-    return this.http.get<ItemObject>(this.baseUrl + "/api/items/search/findItemById?id=" + id);
+    return this.http.get<ItemObject>(this.baseUrl + id);
   }
 
   getItems(url: string): Observable<ItemsObject> {
@@ -36,11 +38,13 @@ export class ItemService {
   createItem(item: ItemObject) {
     let body = JSON.stringify(item, null, 2);
     console.log(body);
-    return this.http.post('/api/items', body, httpOptions);
+    return this.http.post(this.baseUrl, body, httpOptions);
   }
 
   updateItem(item: ItemObject): Observable<ItemObject> {
+    console.log(httpOptions);
     var url: string = this.baseUrl + item.id;
+    console.log(url);
     return this.http.put(url, item, httpOptions)
       .pipe(map(() => item));
   }

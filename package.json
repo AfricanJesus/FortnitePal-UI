@@ -26,6 +26,7 @@
     "@angular/pwa": "^0.11.2",
     "@angular/router": "~6.0.2",
     "@ng-bootstrap/ng-bootstrap": "~2.1.0",
+    "@ng-select/ng-select": "^2.20.0",
     "@progress/kendo-angular-treeview": "^2.5.0",
     "@progress/kendo-theme-default": "latest",
     "@swimlane/ngx-charts": "~8.0.0",

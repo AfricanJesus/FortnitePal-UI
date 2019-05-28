@@ -6,15 +6,7 @@ import { RouterModule } from '@angular/router';
 // *******************************************************************************
 // Layouts
 
-import { Layout1Component } from './layout-1/layout-1.component';
-import { Layout1FlexComponent } from './layout-1-flex/layout-1-flex.component';
 import { Layout2Component } from './layout-2/layout-2.component';
-import { Layout2FlexComponent } from './layout-2-flex/layout-2-flex.component';
-import { LayoutWithoutNavbarComponent } from './layout-without-navbar/layout-without-navbar.component';
-import { LayoutWithoutNavbarFlexComponent } from './layout-without-navbar-flex/layout-without-navbar-flex.component';
-import { LayoutWithoutSidenavComponent } from './layout-without-sidenav/layout-without-sidenav.component';
-import { LayoutHorizontalSidenavComponent } from './layout-horizontal-sidenav/layout-horizontal-sidenav.component';
-import { LayoutBlankComponent } from './layout-blank/layout-blank.component';
 
 
 // *******************************************************************************
@@ -49,15 +41,7 @@ import { LayoutService } from './layout.service';
     SidenavModule
   ],
   declarations: [
-    Layout1Component,
-    Layout1FlexComponent,
     Layout2Component,
-    Layout2FlexComponent,
-    LayoutWithoutNavbarComponent,
-    LayoutWithoutNavbarFlexComponent,
-    LayoutWithoutSidenavComponent,
-    LayoutHorizontalSidenavComponent,
-    LayoutBlankComponent,
 
     LayoutNavbarComponent,
     LayoutSidenavComponent,

@@ -49,11 +49,14 @@ export class ItemEditComponent implements OnInit {
       desc: ['null', Validators.required],
       rarityType: ['null', Validators.required],
       images: this.fb.array([]),
+      animated: ['false', Validators.required],
+      traversal: ['false', Validators.required],
+      reactive: ['false', Validators.required],
       obtained: this.fb.group({
         season: ['0', Validators.required],
         tier: ['0', Validators.required],
         promo: ['null', Validators.required],
-        includedInName: ['null', Validators.required],
+        includedInOutfit: ['null', Validators.required],
         vbuckPrice: ['0', Validators.required],
         price: ['0.00', Validators.required],
         challenge: ['null', Validators.required],
@@ -63,23 +66,25 @@ export class ItemEditComponent implements OnInit {
       itemType: ['null', Validators.required],
       status: ['null', Validators.required],
     });
-      this.itemSingleService.getItem(this.route.snapshot.params.id).subscribe(
-        (data: ItemObject) => {
-          this.itemRetrieved(data)
-        },
-        err => console.error(err),
-        () => console.log('Data Loaded')
-      );
-    this.styleSetService.getStyles("/api/styleSets?size=500").subscribe(
-      (data: StyleSetsObject) => {
-        this.styleSets = data._embedded.styleSets;
-      }, err => console.error(err),
-      () => {
-        for (let style of this.styleSets) {
-          console.log(style.styleSetName);
-        }
-      }
-    )
+
+    this.itemSingleService.getItem(this.route.snapshot.params.id).subscribe(
+      (data: ItemObject) => {
+        this.itemRetrieved(data)
+      },
+      err => console.error(err),
+      () => console.log('Data Loaded')
+    );
+
+    // this.styleSetService.getStyles("/api/styleSets?size=500").subscribe(
+    //   (data: StyleSetsObject) => {
+    //     this.styleSets = data._embedded.styleSets;
+    //   }, err => console.error(err),
+    //   () => {
+    //     for (let style of this.styleSets) {
+    //       console.log(style.styleSetName);
+    //     }
+    //   }
+    // )
   }
 
   itemRetrieved(item: ItemObject): void {
@@ -87,17 +92,19 @@ export class ItemEditComponent implements OnInit {
       this.itemForm.reset();
     }
     this.item = item;
-
+    this.patchImages();
     this.itemForm.patchValue({
       name: this.item.name,
       desc: this.item.desc,
       rarityType: this.item.rarityType,
-      images: this.item.images,
+      animated: this.item.animated,
+      traversal: this.item.traversal,
+      reactive: this.item.reactive,
       obtained: {
         season: this.item.obtained.season,
         tier: this.item.obtained.tier,
         promo: this.item.obtained.promo,
-        includedInName: this.item.obtained.includedInName,
+        includedInOutfit: this.item.obtained.includedInOutfit,
         vbuckPrice: this.item.obtained.vbuckPrice,
         price: this.item.obtained.price,
         challenge: this.item.obtained.challenge,
@@ -106,31 +113,29 @@ export class ItemEditComponent implements OnInit {
       set: this.item.set,
       itemType: this.item.itemType,
       status: this.item.status,
-    })
+    });
+  }
+
+  patchImages(): void {
+    for (var i = 0; i < this.item.images.length; i++) {
+      this.addImage();
+      this.images.controls[i].setValue(this.item.images[i]);
+    }
   }
 
   createImage(): FormControl {
-    return this.fb.control({image: ['']});
+    return this.fb.control('');
+  }
+
+  addImage(): void {
+    this.images.push(this.createImage());
+  }
+
+  deleteImage(i): void {
+    this.images.removeAt(i);
   }
 
   get images(): FormArray {
-    return <FormArray>this.itemForm.get('images');
+    return this.itemForm.get('images') as FormArray;
   }
-
-  // initializeItem(): RootObject {
-  //   return {
-  //     id: null,
-  //     name: null,
-  //     desc: null,
-  //     rarityType: null,
-  //     images: null,
-  //     obtained: null,
-  //     styleSet: null,
-  //     set: null,
-  //     itemType: null,
-  //     status: null,
-  //     _links: null
-  //   };
-  // }
-
 }
